@@ -12,3 +12,4 @@
 ## Tutorials
 * LinkedIn Learning: [Building Recommender Systems with Machine Learning and AI](https://www.linkedin.com/learning/building-recommender-systems-with-machine-learning-and-ai)
 * YouTube: [How Recommender Systems Work (Netflix/Amazon)](https://www.youtube.com/watch?v=n3RKsY2H-NE&ab_channel=ArtoftheProblem)
+* YouTube: [How does Netflix recommend movies? Matrix Factorization](https://www.youtube.com/watch?v=ZspR5PZemcs)

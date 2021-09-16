@@ -21,3 +21,8 @@
 * User authentication - [AWS Cognito](https://aws.amazon.com/cognito/)
 * Storage - [AWS S3](https://www.coursera.org/projects/aws-s3-basics?)
 
+
+## Reference
+* [Fullstack Recommendation System](https://github.com/yoongi0428/fullstack_recsys)
+* [Image Recommendations with PyTorch + Flask + PostgreSQL + Heroku deployment](https://towardsdatascience.com/image-recommendations-with-pytorch-flask-postgresql-heroku-deployment-206682d06c6b)
+

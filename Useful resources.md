@@ -1,6 +1,5 @@
 # Useful Resources
 
-\usepackage{ulem}
 
 ## Dataset
 * [IMDb TV Dataset](https://www.kaggle.com/hazimahmed/imdb-tv-dataset?select=TV+Series+Names+with+1k+Votes.csv)(general info)
@@ -29,5 +28,6 @@
 * [Fullstack Recommendation System](https://github.com/yoongi0428/fullstack_recsys)
 * [Image Recommendations with PyTorch + Flask + PostgreSQL + Heroku deployment](https://towardsdatascience.com/image-recommendations-with-pytorch-flask-postgresql-heroku-deployment-206682d06c6b)
 * [Build a fully production ready machine learning app with Python Django, React, and Docker](https://towardsdatascience.com/build-a-fully-production-ready-machine-learning-app-with-python-django-react-and-docker-c4d938c251e5)
-* **Sample UI:** [Date Night Movie](https://datenightmovies.com)
+* **Sample UI: Recommend based on movies** [Date Night Movie](https://datenightmovies.com)
+* **Sample UI: Recommend based on actors** [Autum](https://autum.com)
 * **Useful API:** [Media Hound Developers](https://developer.mediahound.com)

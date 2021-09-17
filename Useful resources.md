@@ -31,3 +31,4 @@
 * **Sample UI: Recommend based on movies** [Date Night Movie](https://datenightmovies.com)
 * **Sample UI: Recommend based on actors** [Autum](https://autum.com)
 * **Useful API:** [Media Hound Developers](https://developer.mediahound.com)
+* **Frontpage design, and more:** [Link to YouTube](https://www.youtube.com/watch?v=VihRQ_uhHtE)

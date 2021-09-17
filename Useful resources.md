@@ -5,12 +5,12 @@
 ## Dataset
 * [IMDb TV Dataset](https://www.kaggle.com/hazimahmed/imdb-tv-dataset?select=TV+Series+Names+with+1k+Votes.csv)(general info)
 * [The Movies Dataset](https://www.kaggle.com/rounakbanik/the-movies-dataset?select=ratings.csv)(user ratings)
-* \sout{[Netflix Movies and TV Shows](https://www.kaggle.com/shivamb/netflix-shows)}
-* \sout{[Movies on Netflix, Prime Video, Hulu and Disney+](https://www.kaggle.com/ruchi798/movies-on-netflix-prime-video-hulu-and-disney)}
-* \sout{[IMDb movies extensive dataset](https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset)}
-* \sout{[Amazon Prime TV Shows](https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows)}
-* \sout{[HBO TV Shows, Documentaries, Movies as of 2020
-](https://www.kaggle.com/rishidamarla/hbo-tv-shows-documentaries-movies-as-of-2020)}
+* ~~[Netflix Movies and TV Shows](https://www.kaggle.com/shivamb/netflix-shows)~~
+* ~~[Movies on Netflix, Prime Video, Hulu and Disney+](https://www.kaggle.com/ruchi798/movies-on-netflix-prime-video-hulu-and-disney)~~
+* ~~[IMDb movies extensive dataset](https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset)~~
+* ~~[Amazon Prime TV Shows](https://www.kaggle.com/nilimajauhari/amazon-prime-tv-shows)~~
+* ~~[HBO TV Shows, Documentaries, Movies as of 2020
+](https://www.kaggle.com/rishidamarla/hbo-tv-shows-documentaries-movies-as-of-2020)~~
 
 
 ## Tutorials
@@ -29,5 +29,5 @@
 * [Fullstack Recommendation System](https://github.com/yoongi0428/fullstack_recsys)
 * [Image Recommendations with PyTorch + Flask + PostgreSQL + Heroku deployment](https://towardsdatascience.com/image-recommendations-with-pytorch-flask-postgresql-heroku-deployment-206682d06c6b)
 * [Build a fully production ready machine learning app with Python Django, React, and Docker](https://towardsdatascience.com/build-a-fully-production-ready-machine-learning-app-with-python-django-react-and-docker-c4d938c251e5)
-* \textbf{[Date Night Movie](datenightmovies.com)}
-* \textbf{[Media Hound Developers](https://developer.mediahound.com)}
+* [Date Night Movie](datenightmovies.com)
+* [Media Hound Developers](https://developer.mediahound.com)

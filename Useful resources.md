@@ -17,6 +17,7 @@
 * YouTube: [How Recommender Systems Work (Netflix/Amazon)](https://www.youtube.com/watch?v=n3RKsY2H-NE&ab_channel=ArtoftheProblem)
 * YouTube: [How does Netflix recommend movies? Matrix Factorization](https://www.youtube.com/watch?v=ZspR5PZemcs)
 * YouTube: [Building a Movie Recommendation Engine using Spark ALS](https://www.youtube.com/watch?v=EfHscLaMobY&ab_channel=BinodSumanAcademy)
+	* Turning data fetched from db into STATE (24:00)
 
 
 ## UI - Backend

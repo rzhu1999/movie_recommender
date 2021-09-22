@@ -4,6 +4,7 @@
 
 the main app which would serve our Django application. However, all other functionality would be performed by other custom apps we create, such as the prediction app in our case. We would add another app called ‘users’ later on.
 
+```
 movie_recommender/backend
 └───django_app
 │ manage.py
@@ -22,6 +23,7 @@ models.py
 tests.py
 views.py
 **init**.py
+```
 
 ## Frontend - React
 

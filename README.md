@@ -6,23 +6,23 @@ the main app which would serve our Django application. However, all other functi
 
 ```
 movie_recommender/backend
-└───django_app
-│ manage.py
-│
-├───mainapp
-│ asgi.py
-│ settings.py
-│ urls.py
-│ wsgi.py
-│ **init**.py
-│
-└───prediction
-admin.py
-apps.py
-models.py
-tests.py
-views.py
-**init**.py
+└── django_app
+    ├── mainapp
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── manage.py
+    └── prediction
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── migrations
+        │   └── __init__.py
+        ├── models.py
+        ├── tests.py
+        └── views.py
 ```
 
 ## Frontend - React

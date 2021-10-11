@@ -2,6 +2,7 @@
 
 ## Backend — Django, Django REST framework
 
+* 配置记录 [文档](https://docs.google.com/document/d/1o46zOZQTPOKyToPfKKXi4Id4HQSccy3UWGFKViVTkj0/edit?usp=sharing)
 
 
 ```

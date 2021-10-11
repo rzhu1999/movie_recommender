@@ -20,7 +20,10 @@ __pycache__/
 
 # npm
 node_modules/
+<<<<<<< HEAD
 frontend/react_app/node_modules
+=======
+>>>>>>> af5d291a99aac39eb8a52e852930e42c96263bee
 npm-debug.log
 
 # Webpack
@@ -45,4 +48,8 @@ spritesmith-generated/
 spritesmith.scss
 
 # templated email
+<<<<<<< HEAD
 tmp_email/
+=======
+tmp_email/
+>>>>>>> af5d291a99aac39eb8a52e852930e42c96263bee

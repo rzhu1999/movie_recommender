@@ -5,24 +5,37 @@
 the main app which would serve our Django application. However, all other functionality would be performed by other custom apps we create, such as the prediction app in our case. We would add another app called ‘users’ later on.
 
 ```
-movie_recommender/backend
-└── django_app
-    ├── mainapp
-    │   ├── __init__.py
-    │   ├── asgi.py
-    │   ├── settings.py
-    │   ├── urls.py
-    │   └── wsgi.py
-    ├── manage.py
-    └── prediction
-        ├── __init__.py
-        ├── admin.py
-        ├── apps.py
-        ├── migrations
-        │   └── __init__.py
-        ├── models.py
-        ├── tests.py
-        └── views.py
+movie_recommender
+├── README.md
+├── Useful\ resources.md
+├── backend
+│   └── django_app
+│       ├── db.sqlite3
+│       ├── mainapp
+│       │   ├── __init__.py
+│       │   ├── __pycache__
+│       │   ├── asgi.py
+│       │   ├── local_settings.py
+│       │   ├── settings.py
+│       │   ├── urls.py
+│       │   └── wsgi.py
+│       ├── manage.py
+│       ├── prediction
+│       │   ├── __init__.py
+│       │   ├── __pycache__
+│       │   ├── admin.py
+│       │   ├── apps.py
+│       │   ├── migrations
+│       │   ├── models.py
+│       │   ├── tests.py
+│       │   ├── url.py
+│       │   └── views.py
+│       └── users
+│           ├── __pycache__
+│           └── migrations
+├── engine
+│   └── recommend_engine.ipynb
+└── requirements.txt
 ```
 
 ## Frontend - React

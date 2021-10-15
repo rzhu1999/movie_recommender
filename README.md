@@ -27,6 +27,14 @@ movie_recommender/backend
 
 ## Frontend - React
 
+## Recommend Engine - Python
+
+Broadly, recommender systems can be classified into 3 types:
+
+-   Simple recommenders
+-   Content-based recommenders
+-   Collaborative filtering engines
+
 ## Production build of our application — Docker
 
 We would also add Nginx to our docker workflow which would allow us to serve both our Django and React applications running within Docker containers

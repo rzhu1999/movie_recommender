@@ -45,7 +45,13 @@ movie_recommender
 Broadly, recommender systems can be classified into 3 types:
 
 -   Simple recommenders
+    ```
+    get_top_recommendations(n)
+    ```
 -   Content-based recommenders
+    ```
+    get_similar_recommendations(title)
+    ```
 -   Collaborative filtering engines
 
 ## Production build of our application — Docker

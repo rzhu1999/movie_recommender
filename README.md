@@ -44,15 +44,16 @@ movie_recommender
 
 Broadly, recommender systems can be classified into 3 types:
 
--   Simple recommenders
+-   Simple recommenders (tell me what's trending)
     ```
     get_top_recommendations(n)
     ```
--   Content-based recommenders
+-   Content-based recommenders (I like this one, and want to see more...)
     ```
     get_similar_recommendations(title)
     ```
--   Collaborative filtering engines
+-   Collaborative filtering engines (I've watched them, here is my ratings...)
+    ref: https://towardsdatascience.com/item-based-collaborative-filtering-in-python-91f747200fab
 
 ## Production build of our application — Docker
 

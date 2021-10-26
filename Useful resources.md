@@ -10,6 +10,9 @@ Now considering use [Full MovieLens Dataset](https://grouplens.org/datasets/movi
 -   ~~[IMDb movies extensive dataset](https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset)~~
 
 ## Reference
+[Oct 25] Update:
+* [Create Django Views for prediciton engine (python script)](https://github.com/SurhanZahid/Movie-Recommendation-Django/blob/master/movieReviews/movies/contentbased.py)
+* [Content-Based Recommender](https://medium.com/@bindhubalu/content-based-recommender-system-4db1b3de03e7)
 
 [Oct 14] Update:
 Mainly focus on [Build a fully production ready machine learning app with Python Django, React, and Docker](https://towardsdatascience.com/build-a-fully-production-ready-machine-learning-app-with-python-django-react-and-docker-c4d938c251e5)

@@ -6,22 +6,62 @@
 
 
 ```
-backend
+backend/
 └── django_app
+    ├── HQ
+    │   ├── __init__.py
+    │   ├── __pycache__
+    │   │   ├── __init__.cpython-38.pyc
+    │   │   └── apps.cpython-38.pyc
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── static
+    │   │   └── blog
+    │   │       └── main.css
+    │   ├── templates
+    │   │   └── HQ
+    │   │       ├── HQs.html
+    │   │       ├── about.html
+    │   │       ├── base.html
+    │   │       └── home.html
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    ├── contentrec
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── recommender
+    │   │   ├── engine_content.py
+    │   │   ├── engine_simple.py
+    │   │   ├── search_mysql.py
+    │   │   └── upload_mysql.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    ├── db.sqlite3
     ├── mainapp
+    │   ├── __init__.py
     │   ├── __pycache__
     │   │   ├── __init__.cpython-38.pyc
     │   │   ├── local_settings.cpython-38.pyc
     │   │   ├── settings.cpython-38.pyc
     │   │   ├── urls.cpython-38.pyc
     │   │   └── wsgi.cpython-38.pyc
-    │   ├── __init__.py
     │   ├── asgi.py
     │   ├── local_settings.py
     │   ├── settings.py
     │   ├── urls.py
     │   └── wsgi.py
+    ├── manage.py
     ├── prediction
+    │   ├── __init__.py
     │   ├── __pycache__
     │   │   ├── __init__.cpython-38.pyc
     │   │   ├── admin.cpython-38.pyc
@@ -29,69 +69,58 @@ backend
     │   │   ├── models.cpython-38.pyc
     │   │   ├── urls.cpython-38.pyc
     │   │   └── views.cpython-38.pyc
+    │   ├── admin.py
+    │   ├── apps.py
     │   ├── migrations
-    │   │   ├── __pycache__
-    │   │   │   └── __init__.cpython-38.pyc
-    │   │   └── __init__.py
+    │   │   ├── __init__.py
+    │   │   └── __pycache__
+    │   │       └── __init__.cpython-38.pyc
     │   ├── mlmodel
     │   │   ├── IRISRandomForestClassifier.joblib
     │   │   └── irism.py
-    │   ├── __init__.py
-    │   ├── admin.py
-    │   ├── apps.py
     │   ├── models.py
     │   ├── tests.py
     │   ├── urls.py
     │   └── views.py
-    ├── users
-    │   ├── __pycache__
-    │   │   ├── __init__.cpython-38.pyc
-    │   │   ├── admin.cpython-38.pyc
-    │   │   ├── apps.cpython-38.pyc
-    │   │   ├── models.cpython-38.pyc
-    │   │   ├── urls.cpython-38.pyc
-    │   │   └── views.cpython-38.pyc
+    ├── simrec
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
     │   ├── migrations
-    │   │   ├── __pycache__
-    │   │   │   └── __init__.cpython-38.pyc
+    │   │   ├── 0001_initial.py
     │   │   └── __init__.py
-    │   ├── __init__.py
-    │   ├── admin.py
-    │   ├── apps.py
     │   ├── models.py
+    │   ├── recommender_sim
+    │   │   ├── engine_content.py
+    │   │   ├── engine_content_ind.py
+    │   │   └── engine_simple.py
     │   ├── tests.py
     │   ├── urls.py
     │   └── views.py
-    ├── db.sqlite3
-    └── manage.py
+    └── users
+        ├── __init__.py
+        ├── __pycache__
+        │   ├── __init__.cpython-38.pyc
+        │   ├── admin.cpython-38.pyc
+        │   ├── apps.cpython-38.pyc
+        │   ├── models.cpython-38.pyc
+        │   ├── urls.cpython-38.pyc
+        │   └── views.cpython-38.pyc
+        ├── admin.py
+        ├── apps.py
+        ├── migrations
+        │   ├── __init__.py
+        │   └── __pycache__
+        │       └── __init__.cpython-38.pyc
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        └── views.py
 
 12 directories, 45 files
 ```
 
 ## Frontend - React
 
-```
-frontend/react_app/src
-├── components
-│   ├── Footer.js
-│   ├── Home.js
-│   ├── Layout.js
-│   ├── Login.js
-│   ├── PasswordUpdate.js
-│   └── TopBar.js
-├── store
-│   ├── authActionTypes.js
-│   ├── authActions.js
-│   └── authReducer.js
-├── App.js
-├── App.test.js
-├── Urls.js
-├── index.js
-├── reportWebVitals.js
-├── serviceWorker.js
-├── settings.js
-└── setupTests.js
-```
-## Production build of our application — Docker
+Will upload later
 
-Not included

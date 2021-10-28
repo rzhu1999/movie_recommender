@@ -1,11 +1,13 @@
+import os
+
 # Set AWS RDS MySQL database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'predictiondb',
-        'USER': 'admin',
-        'PASSWORD': 'Dsci-551',
-        'HOST': 'databasemovie.cgxw2jw7zt3d.us-east-1.rds.amazonaws.com',
+        'USER': os.environ.get('AWS_RDS_USER'),
+        'PASSWORD': os.environ.get('AWS_RDS_PASSWORD'),
+        'HOST': os.environ.get('AWS_RDS_HOST'),
         'PORT': '3306',
     }
 }

@@ -59,12 +59,7 @@ Broadly, recommender systems can be classified into 3 types:
     ```
 -   Content-based recommenders (I like this one, and want to see more...)
     ```
-    get_similar_recommendations(title,
-                                n,
-                                metadata,
-                                cosine_sim,
-                                indices,
-                                )
+    get_similar_recommendations(title, n, metadata, cosine_sim, indices)
     ```
 -   _TODO_ Collaborative filtering engines (I've watched them, here is my ratings...)
     ref: https://towardsdatascience.com/item-based-collaborative-filtering-in-python-91f747200fab

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import response
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
 import numpy as np
@@ -11,8 +11,17 @@ import os
 
 from . import content_based as cb
 
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+from prediction.apps import PredictionConfig
+
 
 class simlar_recommend(APIView):
+
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def post(self, request, format=None):
         host = os.environ.get("AWS_RDS_HOST")
         username = os.environ.get("AWS_RDS_USER")
@@ -36,7 +45,7 @@ class simlar_recommend(APIView):
         if result:
             return Response(result, status=200)
         else:
-            return Response("Movie not found, please try another name", status=400)
+            return Response("Movie not found, please try another name.", status=400)
 
 
 # # Function based view to add numbers

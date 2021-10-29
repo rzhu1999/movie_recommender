@@ -1,41 +1,50 @@
 # movie_recommender
 
-## Backend — Django, Django REST framework
+## Backend — Python, Django, Django REST framework
 
-the main app which would serve our Django application. However, all other functionality would be performed by other custom apps we create, such as the prediction app in our case. We would add another app called ‘users’ later on.
+So far, we have
+
+-   Created REST API for
+    -   content-based recommenders
+    -   authentication (login/logout)
+    -   update_password
+-   Built simple recommenders (tell me what's trending)
+-   Built content-based recommender (I like this one, and want to see more...)
+    -   Catch "Movie not found" error
 
 ```
-movie_recommender
-├── README.md
-├── Useful\ resources.md
-├── backend
-│   └── django_app
-│       ├── db.sqlite3
-│       ├── mainapp
-│       │   ├── __init__.py
-│       │   ├── __pycache__
-│       │   ├── asgi.py
-│       │   ├── local_settings.py
-│       │   ├── settings.py
-│       │   ├── urls.py
-│       │   └── wsgi.py
-│       ├── manage.py
-│       ├── prediction
-│       │   ├── __init__.py
-│       │   ├── __pycache__
-│       │   ├── admin.py
-│       │   ├── apps.py
-│       │   ├── migrations
-│       │   ├── models.py
-│       │   ├── tests.py
-│       │   ├── url.py
-│       │   └── views.py
-│       └── users
-│           ├── __pycache__
-│           └── migrations
-├── engine
-│   └── recommend_engine.ipynb
-└── requirements.txt
+backend
+└── django_app
+    ├── mainapp
+    │   ├── __init__.py
+    │   ├── __pycache__
+    │   ├── asgi.py
+    │   ├── local_settings.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── manage.py
+    ├── prediction
+    │   ├── __init__.py
+    │   ├── __pycache__
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── content_based.py
+    │   ├── migrations
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    └── users
+        ├── __init__.py
+        ├── __pycache__
+        ├── admin.py
+        ├── apps.py
+        ├── migrations
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        └── views.py
 ```
 
 ## Frontend - React
@@ -50,11 +59,16 @@ Broadly, recommender systems can be classified into 3 types:
     ```
 -   Content-based recommenders (I like this one, and want to see more...)
     ```
-    get_similar_recommendations(title)
+    get_similar_recommendations(title,
+                                n,
+                                metadata,
+                                cosine_sim,
+                                indices,
+                                )
     ```
--   Collaborative filtering engines (I've watched them, here is my ratings...)
+-   _TODO_ Collaborative filtering engines (I've watched them, here is my ratings...)
     ref: https://towardsdatascience.com/item-based-collaborative-filtering-in-python-91f747200fab
 
-## Production build of our application — Docker
+## _TODO_ Production build of our application — Docker
 
 We would also add Nginx to our docker workflow which would allow us to serve both our Django and React applications running within Docker containers

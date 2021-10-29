@@ -87,11 +87,11 @@ const RecResults = ({ dataObject, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Rank</TableCell>
                 <TableCell>Title</TableCell>
+                <TableCell>Overview</TableCell>
                 <TableCell>Vote_count</TableCell>
                 <TableCell>Vote_average</TableCell>
-                <TableCell>Weighted_score</TableCell>
+                <TableCell>Poster_path</TableCell>
               </TableRow>
             </TableHead>
             {/* 表主体 */}
@@ -122,12 +122,12 @@ const RecResults = ({ dataObject, ...rest }) => {
                         {getInitials(customer.name)}
                       </Avatar> */}
                       <Typography color="textPrimary" variant="body1">
-                        {customer.id}
+                        {customer.title}
                       </Typography>
                     </Box>
                   </TableCell>
                   {/* 第3列 */}
-                  <TableCell>{customer.title}</TableCell>
+                  <TableCell>{customer.overview}</TableCell>
                   {/* 第4列 */}
                   <TableCell>
                     {/* {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`} */}
@@ -136,7 +136,7 @@ const RecResults = ({ dataObject, ...rest }) => {
                   {/* 第5列 */}
                   <TableCell>{customer.vote_average}</TableCell>
                   {/* 第6列 */}
-                  <TableCell>{customer.weighted_score}</TableCell>
+                  <TableCell>{customer.poster_path}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

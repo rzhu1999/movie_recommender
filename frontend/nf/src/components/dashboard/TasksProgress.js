@@ -10,6 +10,7 @@ import {
 import { orange } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
+// 3rd card: (progress bar ) I've already watched
 const TasksProgress = (props) => (
   <Card
     sx={{ height: '100%' }}
@@ -27,13 +28,13 @@ const TasksProgress = (props) => (
             gutterBottom
             variant="h6"
           >
-            TASKS PROGRESS
+            I&apos;VE ALREADY WATCHED
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            75.5%
+            10.5%
           </Typography>
         </Grid>
         <Grid item>
@@ -50,7 +51,7 @@ const TasksProgress = (props) => (
       </Grid>
       <Box sx={{ pt: 3 }}>
         <LinearProgress
-          value={75.5}
+          value={10.5}
           variant="determinate"
         />
       </Box>

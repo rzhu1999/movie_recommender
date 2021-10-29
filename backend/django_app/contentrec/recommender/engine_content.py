@@ -18,7 +18,6 @@ dbname = 'predictiondb'
 connection = pymysql.connect(host=host, user=username, password=password, database=dbname)
 metadata = pd.read_sql_query("SELECT * from Metabase", connection)
 
-
 features = ['cast', 'crew', 'keywords', 'genres']
 
 for f in features:

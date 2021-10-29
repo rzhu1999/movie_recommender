@@ -9,17 +9,19 @@ import {
   colors,
   useTheme
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+// import LaptopMacIcon from '@material-ui/icons/LaptopMac';
+// import PhoneIcon from '@material-ui/icons/Phone';
+// import TabletIcon from '@material-ui/icons/Tablet';
+import TheatersOutlinedIcon from '@material-ui/icons/TheatersOutlined';
 
+// Doughnut: movies by genres
 const TrafficByDevice = (props) => {
   const theme = useTheme();
 
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [22, 15, 63],
         backgroundColor: [
           colors.indigo[500],
           colors.red[600],
@@ -30,7 +32,7 @@ const TrafficByDevice = (props) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Action', 'Sci-Fi', 'Others']
   };
 
   const options = {
@@ -57,28 +59,28 @@ const TrafficByDevice = (props) => {
 
   const devices = [
     {
-      title: 'Desktop',
-      value: 63,
-      icon: LaptopMacIcon,
+      title: 'Action',
+      value: 22,
+      icon: TheatersOutlinedIcon,
       color: colors.indigo[500]
     },
     {
-      title: 'Tablet',
+      title: 'Sci-Fi',
       value: 15,
-      icon: TabletIcon,
+      icon: TheatersOutlinedIcon,
       color: colors.red[600]
     },
     {
-      title: 'Mobile',
-      value: 23,
-      icon: PhoneIcon,
+      title: 'Others',
+      value: 63,
+      icon: TheatersOutlinedIcon,
       color: colors.orange[600]
     }
   ];
 
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Moives by Genre" />
       <Divider />
       <CardContent>
         <Box

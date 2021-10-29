@@ -6,8 +6,10 @@ import {
   Typography
 } from '@material-ui/core';
 import { indigo } from '@material-ui/core/colors';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+// import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 
+// 4th card : Favorites
 const TotalProfit = (props) => (
   <Card {...props}>
     <CardContent>
@@ -22,13 +24,13 @@ const TotalProfit = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL PROFIT
+            MY FAVORITES
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            $23,200
+            128
           </Typography>
         </Grid>
         <Grid item>
@@ -39,7 +41,7 @@ const TotalProfit = (props) => (
               width: 56
             }}
           >
-            <AttachMoneyIcon />
+            <ThumbUpOutlinedIcon />
           </Avatar>
         </Grid>
       </Grid>

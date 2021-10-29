@@ -75,6 +75,7 @@ def get_similar_recommendations(title, n, metadata, cosine_sim):
 	
 	#Formatting
 	title = " ".join(w.capitalize() for w in title.split())
+	# n=int(n)
 
 	if not (metadata['title'] == title).any():
 		print('Movie not found, please use a valid name')
@@ -82,6 +83,7 @@ def get_similar_recommendations(title, n, metadata, cosine_sim):
 		print("Please enter a valid number between 1 and {}".format(len(metadata.index)))
 	else:
 		# Get the index of the movie that matches the title
+		
 		idx = indices[title]
 
 		# Get the pairwsie similarity scores of all movies with that movie
@@ -97,7 +99,7 @@ def get_similar_recommendations(title, n, metadata, cosine_sim):
 		movie_indices = [i[0] for i in sim_scores]
 
 		# Return the top 10 most similar movies
-		return metadata[['id','title','director']].iloc[movie_indices].to_dict('records')
+		return metadata[['id','title','overview', 'poster_path','genres','vote_average' ,'vote_count']].iloc[movie_indices].to_dict('records')
 
 # view settings for recommender
 @api_view(['GET', 'POST'])
@@ -110,9 +112,9 @@ def home(request):
 	elif request.method == 'POST':
 		# get input title
 		title = request.data['title']
-		number = request.data['number']
+		n = int(request.data['number'])
 	
 		
-		result_dict = get_similar_recommendations(title, number, metadata, cosine_sim2)
+		result_dict = get_similar_recommendations(title, n, metadata, cosine_sim2)
 	return Response(result_dict, status=200)
 

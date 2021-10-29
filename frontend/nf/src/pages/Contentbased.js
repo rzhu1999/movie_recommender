@@ -9,18 +9,24 @@ import * as settings from '../settingsdj';
 
 function Contentbased() {
   // React hook state variable - Dimensions
-  const [dimensions, setDimensions] = React.useState({});
+  const [dimensions, setDimensions] = React.useState(
+    {
+      title: '',
+      number: '',
+    }
+  );
   // React hook state variable - Prediction
   const [prediction, setPrediction] = React.useState([]);
 
   // Function to update the Dimensions state upon slider value change
-  const handleSliderChange = (name) => (event, newValue) => {
-    setDimensions(
+  const handleSliderChange = (e) => {
+    const { name, value } = e.target;
+    setDimensions((prevState) => (
       {
-        ...dimensions,
-        ...{ [name]: newValue }
-      }
-    );
+        ...prevState,
+        [name]: value
+      }));
+    console.log(dimensions);
   };
 
   // Function to make the predict API call and update the state variable - Prediction
@@ -75,14 +81,16 @@ function Contentbased() {
             {/* input movie title */}
             <Input
               placeholder="A movie title here"
-              // value={title}
-              onChange={handleSliderChange('title')}
+              value={dimensions.title}
+              name="title"
+              onChange={handleSliderChange}
             />
             {/* input number of movies to be recommended */}
             <Input
               placeholder="How Many movies?"
-              // value={number}
-              onChange={handleSliderChange('number')}
+              value={dimensions.number}
+              name="number"
+              onChange={handleSliderChange}
             />
             <Button
               color="primary"

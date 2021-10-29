@@ -9,9 +9,10 @@ import {
   useTheme,
   colors
 } from '@material-ui/core';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+// import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
+// Bar Chart views
 const Sales = (props) => {
   const theme = useTheme();
 
@@ -24,7 +25,7 @@ const Sales = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year',
+        label: 'Likes',
         maxBarThickness: 10
       },
       {
@@ -34,11 +35,11 @@ const Sales = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year',
+        label: 'Dislikes',
         maxBarThickness: 10
       }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: ['Action', 'Sci-fi', 'Comdedy', 'Family', 'Animation', 'Romance']
   };
 
   const options = {
@@ -95,16 +96,16 @@ const Sales = (props) => {
   return (
     <Card {...props}>
       <CardHeader
-        action={(
-          <Button
-            endIcon={<ArrowDropDownIcon />}
-            size="small"
-            variant="text"
-          >
-            Last 7 days
-          </Button>
-        )}
-        title="Latest Sales"
+        // action={(
+        //   <Button
+        //     endIcon={<ArrowDropDownIcon />}
+        //     size="small"
+        //     variant="text"
+        //   >
+        //     Details
+        //   </Button>
+        // )}
+        title="Movie Genres"
       />
       <Divider />
       <CardContent>

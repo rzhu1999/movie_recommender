@@ -18,6 +18,7 @@ import {
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
+// table component
 const orders = [
   {
     id: uuid(),
@@ -83,7 +84,7 @@ const orders = [
 
 const LatestOrders = (props) => (
   <Card {...props}>
-    <CardHeader title="Latest Orders" />
+    <CardHeader title="Movie list" />
     <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>
@@ -91,10 +92,10 @@ const LatestOrders = (props) => (
           <TableHead>
             <TableRow>
               <TableCell>
-                Order Ref
+                ID
               </TableCell>
               <TableCell>
-                Customer
+                Title
               </TableCell>
               <TableCell sortDirection="desc">
                 <Tooltip
@@ -110,7 +111,7 @@ const LatestOrders = (props) => (
                 </Tooltip>
               </TableCell>
               <TableCell>
-                Status
+                Like/Dislike
               </TableCell>
             </TableRow>
           </TableHead>

@@ -33,8 +33,10 @@ class simlar_recommend(APIView):
             cosine_sim=matrix,
             indices=indices,
         )
-
-        return Response(result, status=200)
+        if result:
+            return Response(result, status=200)
+        else:
+            return Response("Movie not found, please try another name", status=400)
 
 
 # # Function based view to add numbers

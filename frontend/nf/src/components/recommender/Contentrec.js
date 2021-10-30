@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import moment from 'moment';
+import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
   // Avatar,
@@ -68,6 +68,10 @@ const RecResults = ({ dataObject, ...rest }) => {
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };
+  // const urlBaseSmall = 'https://image.tmdb.org/t/p/w154';
+  // function getUrlSmall(path) {
+  //   return `https://image.tmdb.org/t/p/w92${path}`;
+  // }
 
   return (
     <Card {...rest}>
@@ -89,9 +93,9 @@ const RecResults = ({ dataObject, ...rest }) => {
                 </TableCell>
                 <TableCell>Title</TableCell>
                 <TableCell>Overview</TableCell>
-                <TableCell>Vote_count</TableCell>
-                <TableCell>Vote_average</TableCell>
-                <TableCell>Poster_path</TableCell>
+                <TableCell>Vote Count</TableCell>
+                <TableCell>Vote Average</TableCell>
+                <TableCell>Release Year</TableCell>
               </TableRow>
             </TableHead>
             {/* 表主体 */}
@@ -136,7 +140,7 @@ const RecResults = ({ dataObject, ...rest }) => {
                   {/* 第5列 */}
                   <TableCell>{customer.vote_average}</TableCell>
                   {/* 第6列 */}
-                  <TableCell>{customer.poster_path}</TableCell>
+                  <TableCell>{moment(customer.release_date).format('YYYY')}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

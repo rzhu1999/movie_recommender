@@ -26,7 +26,7 @@ function Contentbased() {
         ...prevState,
         [name]: value
       }));
-    console.log(dimensions);
+    // console.log(dimensions);
   };
 
   // Function to make the predict API call and update the state variable - Prediction

@@ -99,7 +99,7 @@ def get_similar_recommendations(title, n, metadata, cosine_sim):
 		movie_indices = [i[0] for i in sim_scores]
 
 		# Return the top 10 most similar movies
-		return metadata[['id','title','overview', 'poster_path','genres','vote_average' ,'vote_count']].iloc[movie_indices].to_dict('records')
+		return metadata[['id','title','overview','release_date','genres','vote_average' ,'vote_count', ]].iloc[movie_indices].to_dict('records')
 
 # view settings for recommender
 @api_view(['GET', 'POST'])

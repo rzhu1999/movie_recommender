@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet';
 import {
-  Box, Container, Button, Input
+  Box, Container,
+  // Button, Input
 } from '@material-ui/core';
 // import CustomerListResults from '../components/customer/CustomerListResults';
 // import CustomerListToolbar from '../components/customer/CustomerListToolbar';
-import RecResults from '../components/recommender/Simrec';
-import customers from '../__mocks__/customers';
+import RecResults from '../components/recommender/Contentrec';
+import movies from '../__mocks__/movies';
 
 const Explore = () => (
   <>
@@ -22,26 +23,26 @@ const Explore = () => (
     >
       <Container maxWidth={false}>
 
-        <Box
+        {/* <Box
           sx={{
             display: 'flex',
             // justifyContent: 'flex-end'
           }}
-        >
-          {/* input rec number */}
-          <Input placeholder="How Many movies?" />
+        > */}
+        {/* input rec number */}
+        {/* <Input placeholder="How Many movies?" />
           <Button
             color="primary"
             variant="contained"
           >
             Recommend
           </Button>
-        </Box>
+        </Box> */}
         {/* Search Bar */}
         {/* <RecToolbar /> */}
         {/* Recommendation list Result */}
         <Box sx={{ pt: 3 }}>
-          <RecResults dataObject={customers} />
+          <RecResults dataObject={movies} />
         </Box>
       </Container>
     </Box>

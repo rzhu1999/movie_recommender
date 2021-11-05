@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,17 +44,23 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'corsheaders',
-    'users',
+    # 'users',
     'HQ.apps.HqConfig',
     'allauth',
     'allauth.account',
-    'rest_auth.registration',
-    'simrec.apps.SimrecConfig',
-    'contentrec'
+    # 'rest_auth.registration',
+    'simrec',
+    # 'contentrec',
+    'djoser',
+    'user',
+    # 'social_django',
+    # 'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt.token_blacklist'
 
 ]
 
 MIDDLEWARE = [
+    # 'social_django.middleware.SocialAuthExceptionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,13 +99,6 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -118,6 +118,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 加入user auth 后 需要这种
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly', 
+        # 未加入user auth 暂时用这种
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -165,3 +178,46 @@ AWS_S3_VERIFY = True
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'us-east-1'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' 
+
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nextflexservice@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_USE_TLS = True
+
+
+DJOSER = {
+    'LOGIN_FIELD': 'email',
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SEND_CONFIRMATION_EMAIL': True,
+    'SET_USERNAME_RETYPE': True,
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': 'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    # 'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
+    # 'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': ['http://localhost:8000/google', 'http://localhost:8000/facebook'],
+    'SERIALIZERS': {
+        'user_create': 'user.serializers.UserCreateSerializer',
+        'user': 'user.serializers.UserCreateSerializer',
+        'current_user': 'user.serializers.UserCreateSerializer',
+        # 'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    }
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
+    # 'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    # 'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    # 'AUTH_TOKEN_CLASSES': (
+    #     'rest_framework_simplejwt.tokens.AccessToken',
+    # )
+}
+
+AUTH_USER_MODEL = 'user.UserAccount'

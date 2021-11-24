@@ -3,7 +3,9 @@
 ## Backend — Django, Django REST framework
 
 * 配置记录 [文档](https://docs.google.com/document/d/1o46zOZQTPOKyToPfKKXi4Id4HQSccy3UWGFKViVTkj0/edit?usp=sharing)
-
+* Spark: ratings model 
+[Notebook](https://colab.research.google.com/drive/1n_wMtf9gVFbT30b5HQpiiecgTu9CXbAM?usp=sharing)
+[Video](https://www.youtube.com/watch?v=rgb6Yy4IGpk&t=909s&ab_channel=DataScienceforEveryone)
 
 ```
 backend/

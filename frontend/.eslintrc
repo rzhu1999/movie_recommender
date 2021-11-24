@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "extends": ["react-app"],
+  // "plugins": ["prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["."],
+        "extensions": [".js", ".jsx", ]
+      }
+    }
+  },
+  "rules": {
+    "no-shadow": "off",
+    "camelcase": "off",
+    "react/prop-types": "off",
+    "linebreak-style": 0,
+    "comma-dangle": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "max-len": "off",
+    "no-console": "off",
+    "no-plusplus": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off"
+  }
+}

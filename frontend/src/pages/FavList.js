@@ -15,6 +15,7 @@ import tmdbApi, { movieType } from '../api/tmdbApi';
 const FavList = (props) => {
   const { history } = props;
   const [movieItems, setMovieItems] = useState([]);
+
   useEffect(() => {
     const getMovies = async () => {
       const params = {page: 1}
@@ -27,6 +28,7 @@ const FavList = (props) => {
       }
   };
   getMovies();
+
   }, []);
 
   return(
@@ -56,7 +58,9 @@ const FavList = (props) => {
                 md={6}
                 xs={12}
               >
-                <MovieCard product={product}  history={history}/>
+                <MovieCard 
+                product={product}  history={history} 
+                />
               </Grid>
             ))}
           </Grid>

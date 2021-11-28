@@ -18,6 +18,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import apiConfig from '../../api/apiConfig';
 import { makeStyles } from '@material-ui/styles';
 
+
 const useStyles = makeStyles((theme) => ({
   card: {
     height: '100%',
@@ -36,13 +37,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MovieCard = ({ history, product, ...rest }) => {
+
+const MovieCard = ({  history, product, ...rest }) => {
+
+  
+  const handleCardClick=() => {
+    history.push(`/app/${product.id}`);
+  };
+  
   const classes = useStyles();
+
   return (
-  <Card 
-  className={classes.card} 
-  onClick={() => history.push(`/app/${product.id}`)}>
-    <CardActionArea>
+  <Card className={classes.card} >
+    <CardActionArea onClick={handleCardClick}>
     <CardMedia 
         className={classes.media} 
         image={apiConfig.w500Image(product.poster_path)}

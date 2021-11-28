@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import {withRouter} from 'react-router-dom';
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 // import { useParams } from 'react-router';
 import tmdbApi, { category } from '../api/tmdbApi';
 import apiConfig from '../api/apiConfig';
 // import CastList from '../components/CastList'
+import { grey } from '@material-ui/core/colors';
 import {
     Box, 
     makeStyles, 
@@ -16,7 +19,8 @@ import {
     Typography,
     // IconButton,
     Button,
-    Paper
+    Paper,
+    Avatar
 } from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
 
@@ -96,12 +100,16 @@ const useStyles = makeStyles((theme) => ({
         marginleft:  theme.spacing(4),
         marginRight:  theme.spacing(3),
     },
+    goback:{
+        // position:'fixed',
+
+    },
 }));
 
 const Detail = (props) => {
     const classes = useStyles();
     const [item, setItem] = useState(null);
-    const { match } = props;
+    const { match, history } = props;
     const { params } = match;
     const { id } = params;
     useEffect(() => {  
@@ -111,17 +119,21 @@ const Detail = (props) => {
         }
         );
     }, [id]);
-    console.log(item);
     return (
         <>
             {item ? (
-
+           
             <Box 
             className={classes.banner}
             style={
                 {backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}
                 } >
+             <Avatar >
+                <ArrowBackRoundedIcon  className={classes.goback} 
+                onClick={() => history.goBack()} sx={{ color: grey[800]} } />
+           </Avatar>
             <Grid container className={classes.moviecontent}>
+           
                 <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                     <img src={apiConfig.w500Image(item.poster_path)} alt="" />
                 </Grid>
@@ -176,4 +188,4 @@ const Detail = (props) => {
         );
 }
 
-export default Detail;
+export default withRouter(Detail);

@@ -7,10 +7,22 @@ import {
   CardHeader,
   Divider,
   useTheme,
-  colors
+  colors,
+  makeStyles,
+  createStyles,
 } from '@material-ui/core';
-// import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+// import { grey } from '@material-ui/core/colors';
+
+
+const useStyles = makeStyles((theme) => createStyles({
+  card: {
+    // height: 600,
+    // position: 'relative',
+    backgroundColor: theme.palette.background.secondary,
+    // color: 'text.primary',
+  },
+}));
 
 // Bar Chart views
 const Sales = (props) => {
@@ -19,7 +31,7 @@ const Sales = (props) => {
   const data = {
     datasets: [
       {
-        backgroundColor: colors.indigo[500],
+        backgroundColor: colors.blue[500],
         barPercentage: 0.5,
         barThickness: 12,
         borderRadius: 4,
@@ -29,7 +41,7 @@ const Sales = (props) => {
         maxBarThickness: 10
       },
       {
-        backgroundColor: colors.grey[200],
+        backgroundColor: colors.orange[400],
         barPercentage: 0.5,
         barThickness: 12,
         borderRadius: 4,
@@ -53,7 +65,7 @@ const Sales = (props) => {
       xAxes: [
         {
           ticks: {
-            fontColor: theme.palette.text.secondary
+            fontColor: theme.palette.text.primary
           },
           gridLines: {
             display: false,
@@ -64,7 +76,7 @@ const Sales = (props) => {
       yAxes: [
         {
           ticks: {
-            fontColor: theme.palette.text.secondary,
+            fontColor: theme.palette.text.primary,
             beginAtZero: true,
             min: 0
           },
@@ -92,9 +104,11 @@ const Sales = (props) => {
       titleFontColor: theme.palette.text.primary
     }
   };
-
+  const classes = useStyles();
   return (
-    <Card {...props}>
+    <Card
+    {...props} className={classes.card}
+    >
       <CardHeader
         // action={(
         //   <Button
@@ -110,6 +124,7 @@ const Sales = (props) => {
       <Divider />
       <CardContent>
         <Box
+          
           sx={{
             height: 400,
             position: 'relative'

@@ -37,6 +37,7 @@ const tmdbApi = {
     const url = `search/${category[cate]}`;
     return axiosClient.get(url, params);
   },
+  // for specific movie details
   detail: (cate, id, params) => {
     const url = `${category[cate]}/${id}`;
     return axiosClient.get(url, params);

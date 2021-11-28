@@ -3,25 +3,23 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
-  // Avatar,
+  Avatar,
   Box,
+  // Button,
   Card,
   Checkbox,
   Table,
   TableBody,
   TableCell,
   TableHead,
-  TablePagination,
   TableRow,
   Typography
 } from '@material-ui/core';
-// import getInitials from '../../utils/getInitials';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
-const RecResults = ({ dataObject, ...rest }) => {
-  const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(0);
-
+const RecResults = ({ history, dataObject, ...rest }) => {
+  const [selectedIds, setSelectedIds] = useState([]);
+  
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
 
@@ -31,47 +29,37 @@ const RecResults = ({ dataObject, ...rest }) => {
       newSelectedCustomerIds = [];
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedCustomerIds);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedCustomerIds.indexOf(id);
+    const selectedIndex = selectedIds.indexOf(id);
     let newSelectedCustomerIds = [];
 
     if (selectedIndex === -1) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds,
+        selectedIds,
         id
       );
     } else if (selectedIndex === 0) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(1)
+        selectedIds.slice(1)
       );
-    } else if (selectedIndex === selectedCustomerIds.length - 1) {
+    } else if (selectedIndex === selectedIds.length - 1) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, -1)
+        selectedIds.slice(0, -1)
       );
     } else if (selectedIndex > 0) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, selectedIndex),
-        selectedCustomerIds.slice(selectedIndex + 1)
+        selectedIds.slice(0, selectedIndex),
+        selectedIds.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedCustomerIds);
   };
 
-  const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
-
-  const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-  };
-  // const urlBaseSmall = 'https://image.tmdb.org/t/p/w154';
-  // function getUrlSmall(path) {
-  //   return `https://image.tmdb.org/t/p/w92${path}`;
-  // }
+  
 
   return (
     <Card {...rest}>
@@ -83,10 +71,10 @@ const RecResults = ({ dataObject, ...rest }) => {
               <TableRow key="head">
                 <TableCell padding="checkbox">
                   <Checkbox
-                    checked={selectedCustomerIds.length === dataObject.length}
+                    checked={selectedIds.length === dataObject.length}
                     color="primary"
                     indeterminate={
-                      selectedCustomerIds.length > 0 && selectedCustomerIds.length < dataObject.length
+                      selectedIds.length > 0 && selectedIds.length < dataObject.length
                     }
                     onChange={handleSelectAll}
                   />
@@ -100,16 +88,16 @@ const RecResults = ({ dataObject, ...rest }) => {
             </TableHead>
             {/* 表主体 */}
             <TableBody>
-              {dataObject.slice(0, limit).map((customer) => (
+              {dataObject.map((customer) => (
                 <TableRow
                   hover
                   key={customer.id}
-                  selected={selectedCustomerIds.indexOf(customer.id) !== -1}
+                  selected={selectedIds.indexOf(customer.id) !== -1}
                 >
                   {/* 第1列 */}
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedCustomerIds.indexOf(customer.id) !== -1}
+                      checked={selectedIds.indexOf(customer.id) !== -1}
                       onChange={(event) => handleSelectOne(event, customer.id)}
                       value="true"
                     />
@@ -119,19 +107,28 @@ const RecResults = ({ dataObject, ...rest }) => {
                     <Box
                       sx={{
                         alignItems: 'center',
-                        display: 'flex'
+                        display: 'flex',
+                        justifyContent:'space-between'
                       }}
                     >
-                      {/* <Avatar src={customer.avatarUrl} sx={{ mr: 2 }}>
-                        {getInitials(customer.name)}
-                      </Avatar> */}
+                     
                       <Typography color="textPrimary" variant="body1">
                         {customer.title}
                       </Typography>
+                      <Avatar 
+                      onClick={() => history.push(`/app/${customer.tmdbId}`)}
+                       sx={{ mr: 2 }}> 
+                        <SearchOutlinedIcon />
+                      </Avatar> 
                     </Box>
                   </TableCell>
                   {/* 第3列 */}
-                  <TableCell>{customer.overview}</TableCell>
+                  <TableCell>
+                    {/* {customer.overview} */}
+                    {/* <Button onClick={() => history.push(`/app/${customer.tmdbId}`)}>  */}
+                    {customer.tmdbId}
+                    {/* </Button> */}
+                  </TableCell>
                   {/* 第4列 */}
                   <TableCell>
                     {/* {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`} */}
@@ -147,16 +144,6 @@ const RecResults = ({ dataObject, ...rest }) => {
           </Table>
         </Box>
       </PerfectScrollbar>
-
-      <TablePagination
-        component="div"
-        count={dataObject.length}
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
-      />
     </Card>
   );
 };

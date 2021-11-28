@@ -3,14 +3,13 @@
 //   Link as RouterLink,
 //   // useLocation
 // } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   makeStyles,
   // Avatar,
   Box,
   // Divider,
   Paper,
-  // Hidden,
   List,
   // Typography
 } from '@material-ui/core';
@@ -21,6 +20,7 @@ import BarChartOutlinedIcon from '@material-ui/icons/BarChartOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
 import NavItem from './NavItem';
 
 // const user = {
@@ -51,9 +51,14 @@ const items = [
     title: 'Explore'
   },
   {
-    href: '/app/products',
+    href: '/app/favorites',
     icon: FavoriteBorderOutlinedIcon,
     title: 'Favorites'
+  },
+  {
+    href: '/app/gallery',
+    icon: ImageSearchOutlinedIcon,
+    title: 'Gallery'
   },
   {
     href: '/app/account',
@@ -67,18 +72,22 @@ const items = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  side: {
-    height: '100vh',
-    paddingTop: theme.spacing(9),
-    // paddingLeft: theme.spacing(2),
-    // backgroundColor: theme.palette.primary.main,
-    // position: 'fixed',
-    marginnTop: 80,
-  },
-}));
 
-const DashboardSidebar = () => {
+
+const DashboardSidebar = ( ) => {
+  const useStyles = makeStyles((theme) => ({
+    // side: {
+    //   height: '100vh',
+    //   paddingTop: theme.spacing(9),
+    //   // paddingLeft: theme.spacing(2),
+    //   // backgroundColor: theme.palette.primary.main,
+    //   // position: 'fixed',
+    //   marginnTop: 80,
+    //   top:0,
+    //   position:'sticky',
+    //   // display: (menuState) => (menuState==="show" ? "block": "none"),
+    // },
+  }));
   // const location = useLocation();
 
   // useEffect(() => {
@@ -90,38 +99,15 @@ const DashboardSidebar = () => {
   const content = (
     <Box
       sx={{
+        marginTop: 65,
+        p: 2 ,
         display: 'flex',
         flexDirection: 'column',
-        height: '100%'
+        // height: '800px',
+        position:'sticky'
+      
       }}
     >
-      {/* <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          p: 2
-        }}
-      >
-        <Avatar
-          component={RouterLink}
-          src={user.avatar}
-          sx={{
-            cursor: 'pointer',
-            width: 64,
-            height: 64
-          }}
-          to="/app/account"
-        />
-        <Typography color="textPrimary" variant="h5">
-          {user.name}
-        </Typography>
-        <Typography color="textSecondary" variant="body2">
-          {user.jobTitle}
-        </Typography>
-      </Box> */}
-      {/* <Divider /> */}
-      <Box sx={{ p: 2 }}>
         <List>
           {items.map((item) => (
             <NavItem
@@ -132,13 +118,11 @@ const DashboardSidebar = () => {
             />
           ))}
         </List>
-      </Box>
-      <Box sx={{ flexGrow: 1 }} />
     </Box>
   );
   const classes = useStyles();
   return (
-    <Paper className={classes.side}>
+    <div className={classes.side}>
       {/* <Hidden xlDown> */}
       {/* <Drawer
         anchor="left"
@@ -170,18 +154,18 @@ const DashboardSidebar = () => {
       {/* {content} */}
       {/* </Drawer> */}
       {/* </Hidden> */}
-    </Paper>
+    </div>
   );
 };
 
-// DashboardSidebar.propTypes = {
-//   onMobileClose: PropTypes.func,
-//   openMobile: PropTypes.bool
-// };
+DashboardSidebar.propTypes = {
+  onMobileClose: PropTypes.func,
+  openMobile: PropTypes.bool
+};
 
-// DashboardSidebar.defaultProps = {
-//   onMobileClose: () => {},
-//   openMobile: false
-// };
+DashboardSidebar.defaultProps = {
+  onMobileClose: () => {},
+  openMobile: false
+};
 
 export default DashboardSidebar;

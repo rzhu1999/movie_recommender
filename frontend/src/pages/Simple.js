@@ -6,18 +6,11 @@ import {
 import axios from 'axios';
 import RecResults from '../components/recommender/Simrec';
 
-function Simple() {
+const Simple = () => {
   // React hook state variable - Dimensions
   const [num, setNum] = React.useState('');
   // React hook state variable - Prediction
   const [prediction, setPrediction] = React.useState([]);
-
-  // Function to update the Dimensions state upon slider value change
-  // const handleInputChange = (name) => (event, newValue) => {
-  //   setNum(
-  //     newValue
-  //   );
-  // };
 
   // Function to make the predict API call and update the state variable - Prediction
   const handlePredict = () => {

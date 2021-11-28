@@ -149,7 +149,7 @@ frontend/
 │   │   └── MovieCard.jsx
 │   ├── postview
 │   ├── product
-│   │   ├── ProductCard.js
+│   │   ├── MovieCard.js
 │   │   └── ProductListToolbar.js
 │   ├── recommender
 │   │   ├── Contentrec.js

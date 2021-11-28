@@ -26,7 +26,10 @@ const Post = ({ img, title }) => {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia className={classes.media} image={img} title="My Post" />
+        <CardMedia 
+        className={classes.media} 
+        image={img} 
+        title="My Post" />
         <CardContent>
           <Typography gutterBottom variant="h5">
             {title}

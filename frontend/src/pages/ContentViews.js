@@ -6,8 +6,7 @@ import {
 import axios from 'axios';
 import RecResults from '../components/recommender/Contentrec';
 
-const Contentbased = (props) => {
-  const { history } = props;
+const Contentbased = () => {
   // React hook state variable - Dimensions
   const [dimensions, setDimensions] = React.useState(
     {
@@ -108,7 +107,7 @@ const Contentbased = (props) => {
           {/* <RecToolbar /> */}
           {/* Recommendation list Result */}
           <Box sx={{ pt: 3 }}>
-            <RecResults dataObject={prediction} history={history}/>
+            <RecResults dataObject={prediction} />
           </Box>
         </Container>
       </Box>

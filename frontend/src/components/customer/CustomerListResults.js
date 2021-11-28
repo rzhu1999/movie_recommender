@@ -18,7 +18,7 @@ import {
 import getInitials from '../../utils/getInitials';
 
 const CustomerListResults = ({ customers, ...rest }) => {
-  const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
+  const [selectedIds, setSelectedIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
@@ -31,34 +31,34 @@ const CustomerListResults = ({ customers, ...rest }) => {
       newSelectedCustomerIds = [];
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedCustomerIds);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedCustomerIds.indexOf(id);
+    const selectedIndex = selectedIds.indexOf(id);
     let newSelectedCustomerIds = [];
 
     if (selectedIndex === -1) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds,
+        selectedIds,
         id
       );
     } else if (selectedIndex === 0) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(1)
+        selectedIds.slice(1)
       );
-    } else if (selectedIndex === selectedCustomerIds.length - 1) {
+    } else if (selectedIndex === selectedIds.length - 1) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, -1)
+        selectedIds.slice(0, -1)
       );
     } else if (selectedIndex > 0) {
       newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, selectedIndex),
-        selectedCustomerIds.slice(selectedIndex + 1)
+        selectedIds.slice(0, selectedIndex),
+        selectedIds.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedCustomerIds);
   };
 
   const handleLimitChange = (event) => {
@@ -79,10 +79,10 @@ const CustomerListResults = ({ customers, ...rest }) => {
               <TableRow>
                 <TableCell padding="checkbox">
                   <Checkbox
-                    checked={selectedCustomerIds.length === customers.length}
+                    checked={selectedIds.length === customers.length}
                     color="primary"
                     indeterminate={
-                      selectedCustomerIds.length > 0 && selectedCustomerIds.length < customers.length
+                      selectedIds.length > 0 && selectedIds.length < customers.length
                     }
                     onChange={handleSelectAll}
                   />
@@ -100,12 +100,12 @@ const CustomerListResults = ({ customers, ...rest }) => {
                 <TableRow
                   hover
                   key={customer.id}
-                  selected={selectedCustomerIds.indexOf(customer.id) !== -1}
+                  selected={selectedIds.indexOf(customer.id) !== -1}
                 >
                   {/* 第1列 */}
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedCustomerIds.indexOf(customer.id) !== -1}
+                      checked={selectedIds.indexOf(customer.id) !== -1}
                       onChange={(event) => handleSelectOne(event, customer.id)}
                       value="true"
                     />

@@ -15,6 +15,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import {
   ExitToApp
 } from '@material-ui/icons';
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Navbar = ({ logout, isAuthenticated }) => {
+const Navbar = ({ toggleMenu, toggleTheme, logout, isAuthenticated }) => {
   const [redirect, setRedirect] = useState(false);
   const classes = useStyles();
   const logout_user = () => {
@@ -74,6 +75,10 @@ const Navbar = ({ logout, isAuthenticated }) => {
       </Link>
     </Tooltip>
   );
+  
+  // const handleChange = () => {
+  //   props.onClick  && props.onClick(this.state);
+  // };
 
   return (
     <Paper>
@@ -82,7 +87,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
           <Grid container direction="row" alignItems="center">
             <IconButton
               color="inherit"
-              // onClick={onMobileNavOpen}
+              onClick={toggleMenu}
             >
               <MenuIcon className={classes.menu} />
             </IconButton>
@@ -91,6 +96,9 @@ const Navbar = ({ logout, isAuthenticated }) => {
             </Link>
             <Typography className={classes.logotext} variant="h3">Nextflex</Typography>
           </Grid>
+          <IconButton onClick={toggleTheme}>
+            <Brightness4Icon/>
+          </IconButton>
           {isAuthenticated ? authLinks() : guestLinks()}
           {redirect ? <Redirect to="/" /> : <></>}
         </Toolbar>
@@ -98,6 +106,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
     </Paper>
   );
 };
+
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated

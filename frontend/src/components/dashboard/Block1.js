@@ -56,7 +56,6 @@ const Budget = (props) => {
           <Grid item>
             <Avatar
               className={classes.icon}
-              enableColorOnDark
             >
               <MoneyIcon />
             </Avatar>

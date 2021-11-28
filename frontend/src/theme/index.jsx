@@ -1,4 +1,5 @@
 import { createTheme } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
 
 export const theme = createTheme({
   palette: {
@@ -9,7 +10,7 @@ export const theme = createTheme({
     // },
     // text: {
     //   primary: '#172b4d',
-    //   secondary: '#6b778c'
+    //   secondary: grey[600]
     // }
   },
   typography: {
@@ -56,10 +57,14 @@ export const darkTheme = createTheme({
     //   contrastText: '#ffffff',
     //   main: '#0277bd'
     // },
-    // text: {
-    //   primary: '#172b4d',
-    //   secondary: '#6b778c'
-    // }
+    background:{
+      main: '#e0e0e0',
+      secondary: '#9e9e9e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: grey[300]
+    }
   },
   typography: {
     h1: {

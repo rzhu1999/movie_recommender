@@ -15,16 +15,20 @@ import Explore from './pages/Explore';
 import Contentbased from './pages/Contentbased';
 import Account from './pages/Account';
 import Settings from './pages/Settings';
-import ProductList from './pages/ProductList';
+import Gallery from './pages/Gallery';
+import FavList from './pages/FavList';
+import Detail from './pages/Details';
 import { Provider } from 'react-redux';
 import store from './store';
 
 import Layout from './hocs/Layout';
+import { createBrowserHistory } from "history";
 
+const history = createBrowserHistory();
 const App = () => (
     <Provider store={store}>
-        <Router>
-            <Layout>
+        <Router history={history}>
+            <Layout history={history}>
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
@@ -48,11 +52,25 @@ const App = () => (
                     />
                     <Route exact path="/app/dashboard" component={Dashboard} />
                     <Route exact path="/app/simple" component={Simple} />
-                    <Route exact path="/app/explore" component={Explore} />
-                    <Route exact path="/app/contentbased" component={Contentbased} />
+                    <Route 
+                    exact path="/app/explore" 
+                    render={(props) => <Explore {...props}/>}
+                    />
+                    <Route 
+                      exact path="/app/contentbased" 
+                      render={(props) => <Contentbased {...props}/>}
+                    />
                     <Route exact path="/app/account" component={Account} />
-                    <Route exact path="/app/products" component={ProductList} />
+                    <Route exact path="/app/favorites" component={FavList} />
+                    <Route 
+                    exact path="/app/gallery" 
+                    render={(props) => <Gallery {...props}/>}
+                    />
                     <Route exact path="/app/settings" component={Settings} />
+                    <Route 
+                      exact path='/app/:id' 
+                      render={(props) => <Detail {...props}/>} 
+                    />
                 </Switch>
             </Layout>
         </Router>

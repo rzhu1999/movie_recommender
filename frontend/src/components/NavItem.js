@@ -15,7 +15,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100vh',
-    paddingTop: theme.spacing(2),
+    marginTop: theme.spacing(30),
     paddingLeft: theme.spacing(2),
     // backgroundColor: theme.palette.primary.main,
     position: 'fixed',
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   item: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'left',
     padding: theme.spacing(1),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.2),
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginRight: theme.spacing(1),
+    alignItems: 'left',
     [theme.breakpoints.up('sm')]: {
       // fontSize: '18px',
     },
@@ -52,12 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavItem = ({
-  href,
-  icon: Icon,
-  title,
-  ...rest
-}) => {
+const NavItem = ({ href, icon: Icon, title, ...rest }) => {
   const location = useLocation();
 
   const active = href ? !!matchPath({
@@ -76,6 +72,7 @@ const NavItem = ({
       {...rest}
     >
       <Button
+        // fullWidth
         component={RouterLink}
         sx={{
           color: 'text.secondary',
@@ -94,9 +91,7 @@ const NavItem = ({
         }}
         to={href}
       >
-        {Icon && (
-          <Icon className={classes.icon} size="20" />
-        )}
+        {Icon && (<Icon className={classes.icon} size="20" /> )}
         <Typography className={classes.text} variant="h5">
           {title}
         </Typography>

@@ -9,7 +9,7 @@ import {
   // Avatar,
   Box,
   // Divider,
-  Paper,
+  // Paper,
   List,
   // Typography
 } from '@material-ui/core';
@@ -17,7 +17,7 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import BarChartOutlinedIcon from '@material-ui/icons/BarChartOutlined';
-import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+// import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
@@ -37,12 +37,7 @@ const items = [
     icon: HomeOutlinedIcon,
     title: 'Home'
   },
-  {
-    href: '/app/dashboard',
-    icon: AssessmentOutlinedIcon,
-    title: 'Dashboard'
-  },
-
+ 
   {
     href: '/app/gallery',
     icon: ImageSearchOutlinedIcon,
@@ -53,33 +48,40 @@ const items = [
     icon: FavoriteBorderOutlinedIcon,
     title: 'Popular'
   },
-
   {
-    href: '/app/simple',
-    icon: BarChartOutlinedIcon,
-    title: 'Top Rated'
+    href: '/app/dashboard',
+    icon: AssessmentOutlinedIcon,
+    title: 'Dashboard'
   },
   {
-    href: '/app/contentbased',
-    icon: AssignmentOutlinedIcon,
-    title: 'Recommend'
+    href: '/app/account',
+    icon: PersonOutlineOutlinedIcon,
+    title: 'My Ratings'
   },
   {
     href: '/app/ratings',
     icon: InsertEmoticonOutlinedIcon,
     title: 'Personalized'
   },
+  
+  {
+    href: '/app/contentbased',
+    icon: AssignmentOutlinedIcon,
+    title: 'Recommend'
+  },
+  {
+    href: '/app/simple',
+    icon: BarChartOutlinedIcon,
+    title: 'Trending'
+  },
+ 
   {
     href: '/app/explore',
     icon: FindInPageOutlinedIcon,
     title: 'Explore'
   },
  
-  {
-    href: '/app/account',
-    icon: PersonOutlineOutlinedIcon,
-    title: 'My Ratings'
-  },
+
   // {
   //   href: '/app/settings',
   //   icon: SettingsOutlinedIcon,

@@ -49,7 +49,7 @@ const TasksProgress = (props) => {
               color="textPrimary"
               variant="h3"
             >
-              10.5%
+              2%
             </Typography>
           </Grid>
           <Grid item>

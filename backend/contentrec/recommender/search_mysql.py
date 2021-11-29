@@ -24,9 +24,9 @@ def search_mysql(sql_query, return_type, column_list):
 			return_list.append(item_dict)
 		return return_list
 	cursor.close()
-	cnx.close()
+	cnx.close()	
 
-# sql_query="select * from simple limit 20"
-# return_type = 'dict_list'
-# column_list = ['a', 'b', 'c', 'd', 'e']
-# print(search_mysql(sql_query, return_type, column_list))
+sql_query="select * from simrec_simrec "
+return_type = 'dict_list'
+column_list = ['a', 'b', 'c', 'd', 'e']
+print(search_mysql(sql_query, return_type, column_list))

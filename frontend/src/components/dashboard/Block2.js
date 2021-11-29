@@ -78,7 +78,7 @@ const TotalCustomers = (props) => {
             color="textSecondary"
             variant="caption"
           >
-            Ratings
+            270K Ratings
           </Typography>
         </Box>
       </CardContent>

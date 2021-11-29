@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Helmet } from 'react-helmet';
 import {
-  Box, Container, Button, Input, Typography
+  Box, Container, Button, Typography, CircularProgress
 } from '@material-ui/core';
 import axios from 'axios';
 // import RecResults from '../components/recommender/Contentrec';
@@ -120,7 +120,10 @@ const Ratings = (props) => {
       </Box>
      ) )
      )
-     :<></>
+     :
+ (  <Box sx={{ pt: 3 }}>
+       <CircularProgress />
+     </Box>)
      
      }
  </Container>

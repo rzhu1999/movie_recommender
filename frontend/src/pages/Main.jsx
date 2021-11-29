@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {withRouter} from 'react-router-dom';
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+// import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 // import { useParams } from 'react-router';
 import tmdbApi, { movieType } from '../api/tmdbApi';
 import apiConfig from '../api/apiConfig';
 // import CastList from '../components/CastList'
 // import { SwiperSlide, Swiper } from 'swiper/react/swiper-react';
 import MainCard from '../components/product/Maincard';
-import { grey } from '@material-ui/core/colors';
+// import { grey } from '@material-ui/core/colors';
 import Logo from '../components/Logo';
 import {
     Box, 
@@ -23,7 +23,7 @@ import {
     Container,
     // Button,
     // Paper,
-    Avatar
+    // Avatar
 } from '@material-ui/core';
 // import LanguageIcon from '@material-ui/icons/Language';
 

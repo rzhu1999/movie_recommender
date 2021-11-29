@@ -81,7 +81,7 @@ const Ratingsrec = ({ history, dataObject, ...rest }) => {
                 </TableCell>
                 <TableCell>Title</TableCell>
                 <TableCell>Date</TableCell>
-                <TableCell>Movieid</TableCell>
+                <TableCell>Movie id</TableCell>
                 {/* <TableCell>Vote Average</TableCell> */}
                 {/* <TableCell>Overview</TableCell> */}
               </TableRow>

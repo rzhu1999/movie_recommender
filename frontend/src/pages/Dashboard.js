@@ -1,8 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
 import Budget from '../components/dashboard/Block1';
-import LatestOrders from '../components/dashboard/Table';
-// import LatestProducts from '../components/dashboard/LatestProducts';
 import Sales from '../components/dashboard/Barchart';
 import TasksProgress from '../components/dashboard/Block3';
 import TotalCustomers from '../components/dashboard/Block2';
@@ -89,15 +87,6 @@ const Dashboard = () => (
           >
             <LatestProducts sx={{ height: '100%' }} />
           </Grid> */}
-          <Grid
-            item
-            lg={12}
-            md={12}
-            xl={12}
-            xs={12}
-          >
-            <LatestOrders />
-          </Grid>
         </Grid>
       </Container>
     </Box>

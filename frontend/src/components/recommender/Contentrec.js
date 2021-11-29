@@ -83,7 +83,7 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                 <TableCell>Release Year</TableCell>
                 <TableCell>Vote Count</TableCell>
                 <TableCell>Vote Average</TableCell>
-                <TableCell>Overview</TableCell>
+                {/* <TableCell>Overview</TableCell> */}
               </TableRow>
             </TableHead>
             {/* 表主体 */}
@@ -111,7 +111,7 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                         justifyContent:'space-between'
                       }}
                     >
-                     <Link onClick={() => history.push(`/app/${movieIns.tmdbId}`)}>
+                     <Link onClick={() => history.push(`/app/${movieIns.id}`)}>
                       <Typography color="textPrimary" variant="body1" style={{cursor: 'pointer'}}>
                         {movieIns.title}
                       </Typography>
@@ -135,10 +135,10 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                   {/* 第5列 */}
                   <TableCell>{movieIns.vote_average}</TableCell>
                   {/* 第6列 */}
-                  <TableCell>
-                    {movieIns.id}
+                  {/* <TableCell> */}
+                    {/* {movieIns.id} */}
                    {/* {movieIns.overview} */}
-                  </TableCell>
+                  {/* </TableCell> */}
                 </TableRow>
               ))}
             </TableBody>

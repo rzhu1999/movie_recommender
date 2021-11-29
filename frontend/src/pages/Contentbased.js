@@ -79,7 +79,7 @@ const Contentbased = (props) => {
           <Box
             sx={{
               display: 'flex',
-            // justifyContent: 'flex-end'
+            justifyContent: 'center'
             }}
           >
             {/* input movie title */}
@@ -107,9 +107,14 @@ const Contentbased = (props) => {
           {/* Search Bar */}
           {/* <RecToolbar /> */}
           {/* Recommendation list Result */}
-          <Box sx={{ pt: 3 }}>
+
+      {      prediction ?
+         ( <Box sx={{ pt: 3 }}>
             <RecResults dataObject={prediction} history={history}/>
-          </Box>
+          </Box>) : (
+            <></>
+          )
+      }
         </Container>
       </Box>
     </>

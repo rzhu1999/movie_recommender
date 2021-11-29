@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: theme.palette.primary.main,
     position: 'fixed',
     top: 60,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('sm')]: {
       // backgroundColor: 'white',
       // color: '#555',
       // border: '1px solid #ece7e7',
@@ -29,19 +29,19 @@ const useStyles = makeStyles((theme) => ({
   item: {
     display: 'flex',
     alignItems: 'left',
-    padding: theme.spacing(1),
+    padding: theme.spacing(0.8),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.2),
     },
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(1.5),
+    [theme.breakpoints.down('lg')]: {
+      padding: theme.spacing(0.5),
       cursor: 'pointer',
     },
   },
   icon: {
     marginRight: theme.spacing(1),
     alignItems: 'left',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('md')]: {
       // fontSize: '18px',
     },
   },
@@ -79,7 +79,7 @@ const NavItem = ({ href, icon: Icon, title, ...rest }) => {
           fontWeight: 'medium',
           justifyContent: 'flex-start',
           letterSpacing: 0,
-          py: 1.25,
+          py: 1,
           textTransform: 'none',
           width: '100%',
           ...(active && {
@@ -91,8 +91,8 @@ const NavItem = ({ href, icon: Icon, title, ...rest }) => {
         }}
         to={href}
       >
-        {Icon && (<Icon className={classes.icon} size="18" /> )}
-        <Typography className={classes.text} variant="h5">
+        {Icon && (<Icon className={classes.icon} size="10" /> )}
+        <Typography className={classes.text} variant="h6">
           {title}
         </Typography>
       </Button>

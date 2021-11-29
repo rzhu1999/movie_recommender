@@ -44,7 +44,7 @@ const TotalProfit = (props) => {
               color="textPrimary"
               variant="h3"
             >
-              128
+              54
             </Typography>
           </Grid>
           <Grid item>

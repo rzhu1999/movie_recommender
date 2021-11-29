@@ -22,6 +22,7 @@ import Detail from './pages/Details';
 import Mainpage from './pages/Main';
 import Layout from './hocs/Layout';
 import { createBrowserHistory } from "history";
+import Ratings from './pages/Ratings';
 
 
 const history = createBrowserHistory();
@@ -56,6 +57,10 @@ const App = () => (
                     <Route 
                     exact path="/app/explore" 
                     render={(props) => <Explore {...props}/>}
+                    />
+                    <Route 
+                    exact path="/app/ratings" 
+                    render={(props) => <Ratings {...props}/>}
                     />
                     <Route 
                       exact path="/app/contentbased" 

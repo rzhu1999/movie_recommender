@@ -50,7 +50,7 @@ const Budget = (props) => {
               color="textPrimary"
               variant="h3"
             >
-              20,000
+              2,839
             </Typography>
           </Grid>
           <Grid item>

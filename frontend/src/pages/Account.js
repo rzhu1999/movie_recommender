@@ -4,44 +4,18 @@ import {
   Container,
   Grid
 } from '@material-ui/core';
-import AccountProfile from '../components/account/AccountProfile';
-import AccountProfileDetails from '../components/account/AccountProfileDetails';
+// import AccountProfile from '../components/account/AccountProfile';
+// import AccountProfileDetails from '../components/account/AccountProfileDetails';
+import Myratings from '../components/recommender/Myratings';
+import urat from   '../__mocks__/uratings';
 
-const Account = () => (
+const Account = ({history}) => (
   <>
     <Helmet>
       <title>Account | Nextflex</title>
     </Helmet>
-    <Box
-      sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xs={12}
-          >
-            <AccountProfile />
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={6}
-            xs={12}
-          >
-            <AccountProfileDetails />
-          </Grid>
-        </Grid>
-      </Container>
+    <Box sx={{ pt: 3 }}>
+          <Myratings dataObject={urat} history={history}/>
     </Box>
   </>
 );

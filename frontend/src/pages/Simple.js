@@ -61,7 +61,7 @@ const Simple = () => {
           <Box
             sx={{
               display: 'flex',
-            // justifyContent: 'flex-end'
+            justifyContent: 'center'
             }}
           >
             {/* input number of movies to be recommended */}

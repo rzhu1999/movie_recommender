@@ -19,7 +19,7 @@ const Gallery = (props) => {
     const getMovies = async () => {
       const params = {page: 1}
       try {
-          const response = await tmdbApi.getMoviesList(movieType.top_rated, {params});
+          const response = await tmdbApi.getMoviesList(movieType.popular, {params});
           setMovieItems(response.results.slice(0, 20));
           // console.log(response.results);
       } catch {

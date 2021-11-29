@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import {
   CardMedia,
   CardActionArea,
@@ -17,6 +17,8 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import apiConfig from '../../api/apiConfig';
 import { makeStyles } from '@material-ui/styles';
+import tmdbApi, { category } from '../../api/tmdbApi';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,11 +40,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const MovieCard = ({  history, product, ...rest }) => {
+const Rcard = ({ id, history, ...rest }) => {
+  const [item, setItem] = useState(null);
 
-  
+  useEffect(() => {
+    tmdbApi.detail(category.movie, id, {params:{}}).then(
+      (response)=>{ 
+          setItem(response);
+      }
+      );
+  }, [id]);
+
   const handleCardClick=() => {
-    history.push(`/app/${product.id}`);
+    history.push(`/app/${item.id}`);
   };
   
   const classes = useStyles();
@@ -52,8 +62,8 @@ const MovieCard = ({  history, product, ...rest }) => {
     <CardActionArea onClick={handleCardClick}>
     <CardMedia 
         className={classes.media} 
-        image={apiConfig.w500Image(product.poster_path)}
-        title={product.title} />
+        image={apiConfig.w500Image(item.poster_path)}
+        title={item.title} />
     
     <CardContent>
       <Typography
@@ -63,7 +73,7 @@ const MovieCard = ({  history, product, ...rest }) => {
         variant="button"
         component="h3"
       >
-        {product.title}
+        {item.title}
       </Typography>
     </CardContent>
     </CardActionArea>
@@ -88,7 +98,7 @@ const MovieCard = ({  history, product, ...rest }) => {
             sx={{ pl: 1 }}
             variant="body2"
           >
-            { moment(product.release_date).format('YYYY')}
+            { moment(item.release_date).format('YYYY')}
           </Typography>
         </Grid>
 
@@ -106,7 +116,7 @@ const MovieCard = ({  history, product, ...rest }) => {
             sx={{ pl: 1 }}
             variant="body2"
           >
-            {product.vote_count}
+            {item.vote_count}
           </Typography>
         </Grid>
         <Grid
@@ -131,8 +141,5 @@ const MovieCard = ({  history, product, ...rest }) => {
   </Card>
 )};
 
-MovieCard.propTypes = {
-  product: PropTypes.object.isRequired
-};
 
-export default MovieCard;
+export default Rcard;

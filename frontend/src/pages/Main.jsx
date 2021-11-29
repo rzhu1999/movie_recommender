@@ -109,7 +109,7 @@ const Mainpage = (props) => {
 
   useEffect(() => {
     const getMovies = async () => {
-      const params = {page: 2}
+      const params = {page: 1}
       try {
           const response = await tmdbApi.getMoviesList(movieType.popular, {params});
           setMovieItems(response.results);
@@ -124,7 +124,7 @@ const Mainpage = (props) => {
     return (
       <>
       <Box >
-            {movieItems.slice(1, 2).map( (item) => (
+            {movieItems.slice(13, 14).map( (item) => (
          
             <Box 
             className={classes.banner}

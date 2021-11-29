@@ -19,8 +19,8 @@ const FavList = (props) => {
     const getMovies = async () => {
       const params = {page: 1}
       try {
-          const response = await tmdbApi.getMoviesList(movieType.popular, {params});
-          setMovieItems(response.results.slice(0, 20));
+          const response = await tmdbApi.getMoviesList(movieType.top_rated, {params});
+          setMovieItems(response.results.slice(1, 20));
           console.log(response.results);
       } catch {
           console.log('error');

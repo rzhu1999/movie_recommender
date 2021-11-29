@@ -22,6 +22,7 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
+import InsertEmoticonOutlinedIcon from '@material-ui/icons/InsertEmoticonOutlined';
 import NavItem from './NavItem';
 
 // const user = {
@@ -41,10 +42,22 @@ const items = [
     icon: AssessmentOutlinedIcon,
     title: 'Dashboard'
   },
+
+  {
+    href: '/app/gallery',
+    icon: ImageSearchOutlinedIcon,
+    title: 'Blockbusters'
+  },
+  {
+    href: '/app/favorites',
+    icon: FavoriteBorderOutlinedIcon,
+    title: 'Popular'
+  },
+
   {
     href: '/app/simple',
     icon: BarChartOutlinedIcon,
-    title: 'Trending'
+    title: 'Top Rated'
   },
   {
     href: '/app/contentbased',
@@ -52,30 +65,26 @@ const items = [
     title: 'Recommend'
   },
   {
+    href: '/app/ratings',
+    icon: InsertEmoticonOutlinedIcon,
+    title: 'Personalized'
+  },
+  {
     href: '/app/explore',
     icon: FindInPageOutlinedIcon,
     title: 'Explore'
   },
-  {
-    href: '/app/favorites',
-    icon: FavoriteBorderOutlinedIcon,
-    title: 'Favorites'
-  },
-  {
-    href: '/app/gallery',
-    icon: ImageSearchOutlinedIcon,
-    title: 'Gallery'
-  },
+ 
   {
     href: '/app/account',
     icon: PersonOutlineOutlinedIcon,
-    title: 'Account'
+    title: 'My Ratings'
   },
-  {
-    href: '/app/settings',
-    icon: SettingsOutlinedIcon,
-    title: 'Settings'
-  },
+  // {
+  //   href: '/app/settings',
+  //   icon: SettingsOutlinedIcon,
+  //   title: 'Settings'
+  // },
 ];
 
 
@@ -105,7 +114,7 @@ const DashboardSidebar = ( ) => {
   const content = (
     <Box
       sx={{
-        marginTop: 65,
+        marginTop: 63,
         p: 2 ,
         display: 'flex',
         flexDirection: 'column',

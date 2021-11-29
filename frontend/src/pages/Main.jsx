@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {withRouter} from 'react-router-dom';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 // import { useParams } from 'react-router';
-import tmdbApi, { category } from '../api/tmdbApi';
+import tmdbApi, { movieType } from '../api/tmdbApi';
 import apiConfig from '../api/apiConfig';
 // import CastList from '../components/CastList'
+import { SwiperSlide, Swiper } from 'swiper/react/swiper-react';
+import MainCard from '../components/product/Maincard';
 import { grey } from '@material-ui/core/colors';
+import Logo from '../components/Logo';
 import {
     Box, 
     makeStyles, 
@@ -17,7 +20,7 @@ import {
     // CardContent,
     // CardMedia,
     Typography,
-    // IconButton,
+    Container,
     Button,
     Paper,
     Avatar
@@ -39,8 +42,9 @@ const useStyles = makeStyles((theme) => ({
 
     },
     title:{
-        marginTop: theme.spacing(5),
+        marginTop: theme.spacing(15),
         textTransform: 'uppercase',
+  
     },
     moviecontent: {
         marginLeft:  theme.spacing(5),
@@ -65,21 +69,14 @@ const useStyles = makeStyles((theme) => ({
             paddingTop: 10,
         },
        
-        h1: {
+        lg: {
+            // marginTop: 80,
             textTransform: 'uppercase',
-            fontSize: '12em',
-            fontWeight: 900,
-            lineHeight: 1,
-            padding: theme.spacing(9),
+            // fontSize: '600%',
+            // fontWeight: 5000,
+            // lineHeight: 1,
+            // padding: theme.spacing(9),
         }
-    },
-    genres: {
-        marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(2),
-        marginLeft: theme.spacing(2),
-        display: 'flex, p: 1',
-        justifyContent: 'flex-start',
-
     },
     genresitem: {
         // padding: '0.5rem 1.5rem',
@@ -104,25 +101,47 @@ const useStyles = makeStyles((theme) => ({
         // position:'fixed',
 
     },
+    slo:{
+      marginTop:  theme.spacing(5),
+      textTransform: 'uppercase',
+    },
 }));
 
-const Detail = (props) => {
+const Mainpage = (props) => {
     const classes = useStyles();
-    const [item, setItem] = useState(null);
+    // const [item, setItem] = useState(null);
     const { match, history } = props;
-    const { params } = match;
-    const { id } = params;
-    useEffect(() => {  
-        tmdbApi.detail(category.movie, id, {params:{}}).then(
-        (response)=>{ 
-            setItem(response);
-        }
-        );
-    }, [id]);
+    // const { params } = match;
+    // const { id } = params;
+    // useEffect(() => {  
+    //     tmdbApi.detail(category.movie, id, {params:{}}).then(
+    //     (response)=>{ 
+    //         setItem(response);
+    //     }
+    //     );
+    // }, [id]);
+
+    const [movieItems, setMovieItems] = useState([]);
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const params = {page: 2}
+      try {
+          const response = await tmdbApi.getMoviesList(movieType.popular, {params});
+          setMovieItems(response.results);
+          console.log(response.results);
+      } catch {
+          console.log('error');
+      }
+  };
+  getMovies();
+
+}, []);
     return (
-        <>
-            {item ? (
-           
+      <>
+      <Box >
+            {movieItems.slice(1, 2).map( (item) => (
+         
             <Box 
             className={classes.banner}
             style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), 
@@ -136,14 +155,16 @@ const Detail = (props) => {
                 <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                     <img src={apiConfig.w500Image(item.poster_path)} alt="" />
                 </Grid>
-                <Grid xl={6} lg={5} md={5} sm={12} xs={12} 
+                <Grid xl={6} lg={6} md={6} sm={12} xs={12} 
                 item >
                     <Box className={classes.title}>
-                        <h1>{item.title}</h1>
-                        <h4>{item.release_date}</h4>
+                    <Grid container direction="row" alignItems="center">
+                      <Logo className={classes.logo} />
+                      <Typography className={classes.logotext} variant="overline">Nextflex</Typography>
+                    </Grid>
                     </Box>
                     
-                    <Grid container className={classes.genres} >
+                    {/* <Grid container className={classes.genres} >
                     {item.genres && item.genres.slice(0, 5).map((genre, i) => (
                     <Grid item key={i} className={classes.genresitem}>
                        <Paper>
@@ -154,37 +175,65 @@ const Detail = (props) => {
                         </Paper>
                     </Grid>
                     ))}
-                    </Grid>
+                    </Grid> */}
                     <Box>
-                        <Typography>{item.overview}</Typography>
+                        <Typography variant='h4'>A Movie Recommendation System</Typography>
                     </Box>
                     <Box>
-                    <Grid container className={classes.languages} >
+                        <Typography className={classes.slo}
+                        variant='h2'>Get Your Movies For Tonight</Typography>
+                    </Box>
+                    <Box>
+                    {/* <Grid container className={classes.languages} >
                     <LanguageIcon/>
                     {item.spoken_languages && item.spoken_languages.slice(0, 5).map((language, i) => (
                     <Grid item key={i} className={classes.languageitem}>
                              {language.name}
                     </Grid>
                     ))}
-                    </Grid>
+                    </Grid> */}
                     </Box>
                 </Grid>
                 
             </Grid>
             </Box>
-            ): (
-                <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                minHeight="100vh"
-                >
-                    <CircularProgress />
-                </Box> 
-           
-              )}
+       
+            ))}
+        </Box>
+
+        <Box
+      sx={{
+        // backgroundColor: 'background.default',
+        minHeight: '100%',
+        py: 3
+      }}
+    >
+      <Container maxWidth={false}>
+        {/* <ProductListToolbar /> */}
+        <Box sx={{ pt: 3 }}>
+          <Grid
+            container
+            spacing={3}
+          >
+            {movieItems.slice(2, 20).map((product) => (
+              <Grid
+                item
+                key={product.id}
+                lg={4}
+                md={6}
+                xs={12}
+              >
+                <MainCard 
+                product={product}  history={history} 
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+    </Box>
         </>
         );
 }
 
-export default withRouter(Detail);
+export default withRouter(Mainpage);

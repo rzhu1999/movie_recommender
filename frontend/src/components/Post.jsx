@@ -31,7 +31,7 @@ const Post = ({ img, title }) => {
         image={img} 
         title="My Post" />
         <CardContent>
-          <Typography gutterBottom variant="h5">
+          <Typography gutterBottom variant="h4">
             {title}
           </Typography>
           <Typography variant="body2">

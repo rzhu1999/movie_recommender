@@ -5,15 +5,15 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
   Avatar,
   Box,
-  // Button,
-  Card,
+  Link,
   Checkbox,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-  Typography
+  Typography,
+  Card
 } from '@material-ui/core';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
@@ -21,42 +21,42 @@ const RecResults = ({ history, dataObject, ...rest }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   
   const handleSelectAll = (event) => {
-    let newSelectedCustomerIds;
+    let newSelectedIds;
 
     if (event.target.checked) {
-      newSelectedCustomerIds = dataObject.map((customer) => customer.id);
+      newSelectedIds = dataObject.map((movieIns) => movieIns.id);
     } else {
-      newSelectedCustomerIds = [];
+      newSelectedIds = [];
     }
 
-    setSelectedIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedIds);
   };
 
   const handleSelectOne = (event, id) => {
     const selectedIndex = selectedIds.indexOf(id);
-    let newSelectedCustomerIds = [];
+    let newSelectedIds = [];
 
     if (selectedIndex === -1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds,
         id
       );
     } else if (selectedIndex === 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(1)
       );
     } else if (selectedIndex === selectedIds.length - 1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(0, -1)
       );
     } else if (selectedIndex > 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(0, selectedIndex),
         selectedIds.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedIds);
   };
 
   
@@ -80,25 +80,25 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                   />
                 </TableCell>
                 <TableCell>Title</TableCell>
-                <TableCell>Overview</TableCell>
+                <TableCell>Release Year</TableCell>
                 <TableCell>Vote Count</TableCell>
                 <TableCell>Vote Average</TableCell>
-                <TableCell>Release Year</TableCell>
+                <TableCell>Overview</TableCell>
               </TableRow>
             </TableHead>
             {/* 表主体 */}
             <TableBody>
-              {dataObject.map((customer) => (
+              {dataObject.map((movieIns) => (
                 <TableRow
                   hover
-                  key={customer.id}
-                  selected={selectedIds.indexOf(customer.id) !== -1}
+                  key={movieIns.id}
+                  selected={selectedIds.indexOf(movieIns.id) !== -1}
                 >
                   {/* 第1列 */}
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedIds.indexOf(customer.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, customer.id)}
+                      checked={selectedIds.indexOf(movieIns.id) !== -1}
+                      onChange={(event) => handleSelectOne(event, movieIns.id)}
                       value="true"
                     />
                   </TableCell>
@@ -111,12 +111,13 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                         justifyContent:'space-between'
                       }}
                     >
-                     
-                      <Typography color="textPrimary" variant="body1">
-                        {customer.title}
+                     <Link onClick={() => history.push(`/app/${movieIns.tmdbId}`)}>
+                      <Typography color="textPrimary" variant="body1" style={{cursor: 'pointer'}}>
+                        {movieIns.title}
                       </Typography>
-                      <Avatar 
-                      onClick={() => history.push(`/app/${customer.tmdbId}`)}
+                      </Link>
+                      <Avatar style={{cursor: 'pointer'}}
+                      onClick={() => history.push(`/app/${movieIns.id}`)}
                        sx={{ mr: 2 }}> 
                         <SearchOutlinedIcon />
                       </Avatar> 
@@ -124,20 +125,20 @@ const RecResults = ({ history, dataObject, ...rest }) => {
                   </TableCell>
                   {/* 第3列 */}
                   <TableCell>
-                    {/* {customer.overview} */}
-                    {/* <Button onClick={() => history.push(`/app/${customer.tmdbId}`)}>  */}
-                    {customer.tmdbId}
-                    {/* </Button> */}
+                 
+                    {moment(movieIns.release_date).format('YYYY')}
                   </TableCell>
                   {/* 第4列 */}
                   <TableCell>
-                    {/* {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`} */}
-                    {customer.vote_count}
+                    {movieIns.vote_count}
                   </TableCell>
                   {/* 第5列 */}
-                  <TableCell>{customer.vote_average}</TableCell>
+                  <TableCell>{movieIns.vote_average}</TableCell>
                   {/* 第6列 */}
-                  <TableCell>{moment(customer.release_date).format('YYYY')}</TableCell>
+                  <TableCell>
+                    {movieIns.id}
+                   {/* {movieIns.overview} */}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

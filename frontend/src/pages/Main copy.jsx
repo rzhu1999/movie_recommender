@@ -5,9 +5,12 @@ import {
   Container,
   Grid
 } from '@material-ui/core';
+import { SwiperSlide, Swiper } from 'swiper/react/swiper-react';
 // import ProductListToolbar from '../components/product/ProductListToolbar';
-import MovieCard from '../components/product/MovieCard';
+import MainCard from '../components/product/Maincard';
+import Feat from '../components/product/Feat';
 import tmdbApi, { movieType } from '../api/tmdbApi';
+
 // import apiConfig from '../api/apiConfig';
 
 
@@ -17,7 +20,7 @@ const FavList = (props) => {
 
   useEffect(() => {
     const getMovies = async () => {
-      const params = {page: 1}
+      const params = {page: 2}
       try {
           const response = await tmdbApi.getMoviesList(movieType.popular, {params});
           setMovieItems(response.results.slice(0, 20));
@@ -33,8 +36,33 @@ const FavList = (props) => {
   return(
   <>
     <Helmet>
-      <title>Favorites | Nextflex</title>
+      <title> Nextflex</title>
     </Helmet>
+    {/* =====featured===== */}
+    
+      <Container >
+       
+            <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={'auto'}
+            >
+            {movieItems.slice(0, 1).map((product) => (
+               <SwiperSlide >
+              
+                <Feat 
+                product={product}  history={history} 
+                />
+      
+              </SwiperSlide>
+            ))}
+
+          </Swiper>
+       
+       
+      </Container>
+    
+    {/* =====grids===== */}
     <Box
       sx={{
         // backgroundColor: 'background.default',
@@ -49,15 +77,15 @@ const FavList = (props) => {
             container
             spacing={3}
           >
-            {movieItems.map((product) => (
+            {movieItems.slice(1, 20).map((product) => (
               <Grid
                 item
                 key={product.id}
-                lg={4}
-                md={6}
+                lg={6}
+                md={12}
                 xs={12}
               >
-                <MovieCard 
+                <MainCard 
                 product={product}  history={history} 
                 />
               </Grid>

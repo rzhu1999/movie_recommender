@@ -23,42 +23,42 @@ const RecResults = ({ dataObject, ...rest }) => {
   const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
-    let newSelectedCustomerIds;
+    let newSelectedIds;
 
     if (event.target.checked) {
-      newSelectedCustomerIds = dataObject.map((customer) => customer.id);
+      newSelectedIds = dataObject.map((customer) => customer.id);
     } else {
-      newSelectedCustomerIds = [];
+      newSelectedIds = [];
     }
 
-    setSelectedIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedIds);
   };
 
   const handleSelectOne = (event, id) => {
     const selectedIndex = selectedIds.indexOf(id);
-    let newSelectedCustomerIds = [];
+    let newSelectedIds = [];
 
     if (selectedIndex === -1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds,
         id
       );
     } else if (selectedIndex === 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(1)
       );
     } else if (selectedIndex === selectedIds.length - 1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(0, -1)
       );
     } else if (selectedIndex > 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
+      newSelectedIds = newSelectedIds.concat(
         selectedIds.slice(0, selectedIndex),
         selectedIds.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedIds(newSelectedCustomerIds);
+    setSelectedIds(newSelectedIds);
   };
 
   const handleLimitChange = (event) => {

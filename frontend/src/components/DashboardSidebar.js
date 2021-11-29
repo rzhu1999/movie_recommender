@@ -21,6 +21,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import NavItem from './NavItem';
 
 // const user = {
@@ -31,9 +32,14 @@ import NavItem from './NavItem';
 
 const items = [
   {
-    href: '/app/dashboard',
+    href: '/main',
     icon: HomeOutlinedIcon,
     title: 'Home'
+  },
+  {
+    href: '/app/dashboard',
+    icon: AssessmentOutlinedIcon,
+    title: 'Dashboard'
   },
   {
     href: '/app/simple',

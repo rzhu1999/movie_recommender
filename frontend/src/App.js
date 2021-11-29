@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import store from './store';
 import Home from './containers/Home';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
@@ -18,11 +19,10 @@ import Settings from './pages/Settings';
 import Gallery from './pages/Gallery';
 import FavList from './pages/FavList';
 import Detail from './pages/Details';
-import { Provider } from 'react-redux';
-import store from './store';
-
+import Mainpage from './pages/Main';
 import Layout from './hocs/Layout';
 import { createBrowserHistory } from "history";
+
 
 const history = createBrowserHistory();
 const App = () => (
@@ -30,11 +30,12 @@ const App = () => (
         <Router history={history}>
             <Layout history={history}>
                 <Switch>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Mainpage} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/facebook" component={Facebook} />
                     <Route exact path="/google" component={Google} />
+
                     <Route
                         exact
                         path="/reset-password"
@@ -61,6 +62,10 @@ const App = () => (
                       render={(props) => <Contentbased {...props}/>}
                     />
                     <Route exact path="/app/account" component={Account} />
+                    <Route 
+                    exact path="/main" 
+                    render={(props) => <Mainpage {...props}/>}
+                    />
                     <Route exact path="/app/favorites" component={FavList} />
                     <Route 
                     exact path="/app/gallery" 

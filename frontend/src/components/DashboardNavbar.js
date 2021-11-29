@@ -46,22 +46,6 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             </Typography>
           </IconButton>
         </Hidden>
-        {/* <RouterLink to="/login">
-          <IconButton color="inherit" size="large">
-            <LockOpenOutlinedIcon color="inherit" />
-            <Typography color="textSecondary" variant="body2">
-              Sign In
-            </Typography>
-          </IconButton>
-        </RouterLink>
-        <RouterLink to="/register">
-          <IconButton color="inherit" size="large">
-            <PersonAddOutlinedIcon color="inherit" />
-            <Typography color="textSecondary" variant="body2">
-              Sign Up
-            </Typography>
-          </IconButton>
-        </RouterLink> */}
       </Toolbar>
     </AppBar>
   );

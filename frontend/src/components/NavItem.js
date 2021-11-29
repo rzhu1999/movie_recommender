@@ -92,7 +92,7 @@ const NavItem = ({ href, icon: Icon, title, ...rest }) => {
         to={href}
       >
         {Icon && (<Icon className={classes.icon} size="20" /> )}
-        <Typography className={classes.text} variant="h5">
+        <Typography className={classes.text} variant="h4">
           {title}
         </Typography>
       </Button>

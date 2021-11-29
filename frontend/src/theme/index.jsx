@@ -45,7 +45,9 @@ export const theme = createTheme({
       letterSpacing: '-0.05px'
     },
     overline: {
-      fontWeight: 500
+      fontWeight: 500,
+      fontSize: 50,
+      letterSpacing: '-0.05px'
     }
   }
 });

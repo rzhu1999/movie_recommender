@@ -1,9 +1,5 @@
 *.pyc
 .DS_Store
-.env
-*/settings/local.py
-/staticfiles/*
-/mediafiles/*
 __pycache__/
 /.vscode/
 
@@ -38,9 +34,7 @@ npm-debug.log
 /{{project_name}}-venv/
 /venv/
 /env/
-/output/
 /cache/
-boilerplate.zip
 
 # Spritesmith
 spritesmith-generated/

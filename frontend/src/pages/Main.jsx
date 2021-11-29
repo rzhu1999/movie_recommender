@@ -5,14 +5,14 @@ import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import tmdbApi, { movieType } from '../api/tmdbApi';
 import apiConfig from '../api/apiConfig';
 // import CastList from '../components/CastList'
-import { SwiperSlide, Swiper } from 'swiper/react/swiper-react';
+// import { SwiperSlide, Swiper } from 'swiper/react/swiper-react';
 import MainCard from '../components/product/Maincard';
 import { grey } from '@material-ui/core/colors';
 import Logo from '../components/Logo';
 import {
     Box, 
     makeStyles, 
-    CircularProgress,
+    // CircularProgress,
     Grid,
     // Card,
     // CardActionArea,
@@ -21,11 +21,11 @@ import {
     // CardMedia,
     Typography,
     Container,
-    Button,
-    Paper,
+    // Button,
+    // Paper,
     Avatar
 } from '@material-ui/core';
-import LanguageIcon from '@material-ui/icons/Language';
+// import LanguageIcon from '@material-ui/icons/Language';
 
 const useStyles = makeStyles((theme) => ({
     banner: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     title:{
-        marginTop: theme.spacing(15),
+        marginTop: theme.spacing(10),
         textTransform: 'uppercase',
   
     },
@@ -61,12 +61,12 @@ const useStyles = makeStyles((theme) => ({
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             // width: '30vw',
-            height: '300px',
+            height: '50vh',
             borderRadius: '$border-radius',
             boxShadow: '$box-shadow',
             transform: 'scale(0)',
             // transition: transform 0.7s ease;
-            paddingTop: 10,
+            marginTop: 10,
         },
        
         lg: {
@@ -78,49 +78,33 @@ const useStyles = makeStyles((theme) => ({
             // padding: theme.spacing(9),
         }
     },
-    genresitem: {
-        // padding: '0.5rem 1.5rem',
-        // border: '2px solid $white',
-        marginBottom: theme.spacing(3),
-        marginRight:  theme.spacing(3),
-        // borderRadius: '$border-radius',
-        fontSize: '0.8rem',
-        fontWeight: 600,
-        // backgroundColor: '$body-bg',
-        display: 'flex',
-        lineHeight: 1,
-    },
-    languages:{
-        marginTop:  theme.spacing(3),
-    },
-    languageitem:{
-        marginleft:  theme.spacing(4),
-        marginRight:  theme.spacing(3),
-    },
+    
+    
     goback:{
         // position:'fixed',
 
     },
     slo:{
       marginTop:  theme.spacing(5),
+      // textTransform: 'uppercase',
+    },
+    slo1:{
+      
       textTransform: 'uppercase',
+    },
+    slo2:{
+  
+      textTransform: 'capitalize',
+    },
+    slo3:{
+      marginTop:  theme.spacing(2),
+      textTransform: 'capitalize',
     },
 }));
 
 const Mainpage = (props) => {
     const classes = useStyles();
-    // const [item, setItem] = useState(null);
-    const { match, history } = props;
-    // const { params } = match;
-    // const { id } = params;
-    // useEffect(() => {  
-    //     tmdbApi.detail(category.movie, id, {params:{}}).then(
-    //     (response)=>{ 
-    //         setItem(response);
-    //     }
-    //     );
-    // }, [id]);
-
+    const { history } = props;
     const [movieItems, setMovieItems] = useState([]);
 
   useEffect(() => {
@@ -146,16 +130,13 @@ const Mainpage = (props) => {
             className={classes.banner}
             style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), 
                 rgba(0,0,0,0.5)),url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}} >
-             <Avatar >
-                <ArrowBackRoundedIcon  className={classes.goback} 
-                onClick={() => history.goBack()} sx={{ color: grey[800]} } />
-           </Avatar>
+          
             <Grid container className={classes.moviecontent}>
            
-                <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                <Grid item xl={7} lg={7} md={8} sm={12} xs={12}>
                     <img src={apiConfig.w500Image(item.poster_path)} alt="" />
                 </Grid>
-                <Grid xl={6} lg={6} md={6} sm={12} xs={12} 
+                <Grid xl={4} lg={4} md={4} sm={12} xs={12} 
                 item >
                     <Box className={classes.title}>
                     <Grid container direction="row" alignItems="center">
@@ -163,35 +144,23 @@ const Mainpage = (props) => {
                       <Typography className={classes.logotext} variant="overline">Nextflex</Typography>
                     </Grid>
                     </Box>
-                    
-                    {/* <Grid container className={classes.genres} >
-                    {item.genres && item.genres.slice(0, 5).map((genre, i) => (
-                    <Grid item key={i} className={classes.genresitem}>
-                       <Paper>
-                        <Button 
-                         varient="outlined">
-                             {genre.name}
-                        </Button>
-                        </Paper>
-                    </Grid>
-                    ))}
-                    </Grid> */}
+          
                     <Box>
-                        <Typography variant='h4'>A Movie Recommendation System</Typography>
+                        <Typography 
+                        variant='h4'
+                        className={classes.slo2}
+                        >Your time is too precious to waste on bad movies...</Typography>
+                    </Box>
+                    <Box className={classes.slo}>
+                        <Typography className={classes.slo1}
+                        variant='h3'>Nextflex understands </Typography>
+                        <Typography className={classes.slo2}
+                        variant='h5'>your movie taste and recommends movies based on it. </Typography>
                     </Box>
                     <Box>
-                        <Typography className={classes.slo}
-                        variant='h2'>Get Your Movies For Tonight</Typography>
-                    </Box>
-                    <Box>
-                    {/* <Grid container className={classes.languages} >
-                    <LanguageIcon/>
-                    {item.spoken_languages && item.spoken_languages.slice(0, 5).map((language, i) => (
-                    <Grid item key={i} className={classes.languageitem}>
-                             {language.name}
-                    </Grid>
-                    ))}
-                    </Grid> */}
+                    <Typography className={classes.slo3} variant='h5'>
+                      Go grab your popcorn and we will get the job done!
+                    </Typography>
                     </Box>
                 </Grid>
                 

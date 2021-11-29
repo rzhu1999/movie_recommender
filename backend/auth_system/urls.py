@@ -10,5 +10,6 @@ urlpatterns = [
     path('', include('HQ.urls')),
     path('simple/', include('simrec.urls')),
     path('content/', include('contentrec.urls')),
+    path('ratings/', include('ratings.urls')),
 ]
 # urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

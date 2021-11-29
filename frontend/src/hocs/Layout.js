@@ -7,7 +7,7 @@ import {
 import {
   createStyles,
   makeStyles,
-  styled
+  // styled
 } from '@material-ui/styles';
 // import PropTypes from 'prop-types';
 import { checkAuthenticated, load_user } from '../actions/auth';

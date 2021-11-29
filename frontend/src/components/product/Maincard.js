@@ -60,7 +60,7 @@ const MainCard = ({  history, product, ...rest }) => {
         title={product.title} >
       
       </CardMedia>
-      <h2
+      <h5
         className={classes.mtitle}
         align="center"
         // color="textPrimary"
@@ -69,7 +69,7 @@ const MainCard = ({  history, product, ...rest }) => {
         // color='primary'
       >
         {product.title}
-      </h2>
+      </h5>
     </CardContent>
   </Card>
 )};

@@ -81,7 +81,7 @@ const Myratings = ({ history, dataObject, ...rest }) => {
                 </TableCell>
                 <TableCell>Title</TableCell>
                 <TableCell>Date</TableCell>
-                <TableCell>Movieid</TableCell>
+                <TableCell>My Ratings</TableCell>
                 {/* <TableCell>Vote Average</TableCell> */}
                 {/* <TableCell>Overview</TableCell> */}
               </TableRow>

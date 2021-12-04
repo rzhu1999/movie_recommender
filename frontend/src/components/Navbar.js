@@ -25,10 +25,10 @@ import { logout } from '../actions/auth';
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    marginRight: theme.spacing(1),
+    // marginRight: theme.spacing(1),
   },
   logotext: {
-    marginLeft: theme.spacing(1),
+    // marginLeft: theme.spacing(1),
   },
   toolbar: {
     display: 'flex',
@@ -94,7 +94,9 @@ const Navbar = ({ toggleMenu, toggleTheme, logout, isAuthenticated }) => {
             <Link className="nav-link" to="/">
               <Logo className={classes.logo} />
             </Link>
-            <Typography className={classes.logotext} variant="h3">Nextflex</Typography>
+            <Typography 
+            className={classes.logotext} 
+            variant="h3">NEXTFLEX</Typography>
           </Grid>
           <IconButton onClick={toggleTheme}>
             <Brightness4Icon/>

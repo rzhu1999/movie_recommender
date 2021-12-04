@@ -50,9 +50,10 @@ INSTALLED_APPS = [
     'simrec',
     'contentrec',
     'HQ',
-    'blog',
-    'blog_api',
+    # 'blog',
+    # 'blog_api',
     'ratings',
+    'userupload',
 ]
 
 MIDDLEWARE = [

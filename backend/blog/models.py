@@ -19,7 +19,7 @@ class Post(models.Model):
 
     class PostObjects(models.Manager):
         def get_queryset(self):
-            return super().get_queryset() .filter(status='published')
+            return super().get_queryset().filter(status='published')
 
     options = (
         ('draft', 'Draft'),

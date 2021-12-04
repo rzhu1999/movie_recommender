@@ -23,7 +23,10 @@ import Mainpage from './pages/Main';
 import Layout from './hocs/Layout';
 import { createBrowserHistory } from "history";
 import Ratings from './pages/Ratings';
-
+import Admin from './Admin';
+import Create from './components/admin/create';
+import Edit from './components/admin/edit';
+import Delete from './components/admin/delete';
 
 const history = createBrowserHistory();
 const App = () => (
@@ -31,12 +34,16 @@ const App = () => (
         <Router history={history}>
             <Layout history={history}>
                 <Switch>
+                    
                     <Route exact path="/" component={Mainpage} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/facebook" component={Facebook} />
                     <Route exact path="/google" component={Google} />
-
+                    <Route exact path="/admin" component={Admin} />
+                    <Route exact path="/admin/create" component={Create} />
+				    <Route exact path="/admin/edit/:id" component={Edit} />
+			    	<Route exact path="/admin/delete/:id" component={Delete} />
                     <Route
                         exact
                         path="/reset-password"
@@ -76,7 +83,7 @@ const App = () => (
                     exact path="/app/gallery" 
                     render={(props) => <Gallery {...props}/>}
                     />
-                    <Route exact path="/app/settings" component={Settings} />
+                    <Route exact path="/settings/" component={Settings} />
                     <Route 
                       exact path='/app/:id' 
                       render={(props) => <Detail {...props}/>} 

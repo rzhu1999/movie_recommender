@@ -17,7 +17,7 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import BarChartOutlinedIcon from '@material-ui/icons/BarChartOutlined';
-// import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
@@ -82,11 +82,11 @@ const items = [
   },
  
 
-  // {
-  //   href: '/app/settings',
-  //   icon: SettingsOutlinedIcon,
-  //   title: 'Settings'
-  // },
+  {
+    href: '/admin',
+    icon: SettingsOutlinedIcon,
+    title: 'My pace'
+  },
 ];
 
 

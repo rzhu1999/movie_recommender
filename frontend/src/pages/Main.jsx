@@ -124,9 +124,9 @@ const Mainpage = (props) => {
     return (
       <>
       <Box >
-            {movieItems.slice(13, 14).map( (item) => (
+            {movieItems.slice(7, 8).map( (item) => (
          
-            <Box 
+            <Box key={item.id}
             className={classes.banner}
             style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), 
                 rgba(0,0,0,0.5)),url(${apiConfig.originalImage(item.backdrop_path || item.poster_path)})`}} >

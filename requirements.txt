@@ -24,7 +24,7 @@ django-rest-auth==0.9.5
 django-storages==1.12.2
 django-templated-mail==1.1.1
 djangorestframework==3.12.4
-djangorestframework-simplejwt==4.4.0
+djangorestframework-simplejwt==4.5.0
 djoser==2.0.3
 entrypoints==0.3
 et-xmlfile==1.1.0
